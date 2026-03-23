@@ -328,3 +328,7 @@ nav a.active {
   background: #7C4D9E;
   border-radius: 4px;
 }
+
+.logo {
+  height: 40px; /* smaller and more balanced */
+  margin-right: 12px; /* space between logo and group name */
