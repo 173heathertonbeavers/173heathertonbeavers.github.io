@@ -92,22 +92,19 @@ nav a.active {
   position: relative;
 }
 
-.dropdown-content {
+..dropdown-content {
   display: none;
-  position: absolute;
-  background: #7C4D9E;
-  min-width: 160px;
-  z-index: 1;
 }
 
-.dropdown-content a {
+.dropdown.active .dropdown-content {
   display: block;
-  padding: 10px 12px;
-  color: white;
 }
 
-.dropdown:hover .dropdown-content {
-  display: block;
+/* Keep hover for desktop only */
+@media (hover: hover) {
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
 }
 
 /* ----------------------
