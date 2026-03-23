@@ -332,3 +332,38 @@ nav a.active {
 .logo {
   height: 40px; /* smaller and more balanced */
   margin-right: 12px; /* space between logo and group name */
+
+
+/* Group name styling */
+.group-name-link {
+  text-decoration: none; /* remove underline */
+  font-size: 1.6em;
+  font-weight: bold;
+  color: #4D2177; /* Scout purple */
+}
+
+.group-name-link:hover {
+  color: #7C4D9E;
+}
+
+/* Navigation links */
+nav {
+  display: flex;
+  gap: 15px;
+}
+
+nav a {
+  text-decoration: none;
+  color: #4D2177;
+  font-weight: bold;
+}
+
+nav a:hover {
+  color: #7C4D9E;
+}
+
+/* Highlight the current page */
+nav a.active {
+  color: #7C4D9E; /* darker purple */
+  text-decoration: underline; /* optional */
+}
