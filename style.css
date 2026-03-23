@@ -1,3 +1,15 @@
+/* Force the group name to white */
+header .header-inner > a.group-name-link {
+  color: white !important;
+  text-decoration: none !important;
+  font-weight: bold;
+  font-size: 1.6em;
+}
+
+header .header-inner > a.group-name-link:hover {
+  color: white !important;
+  text-decoration: none !important;
+}
 /* ----------------------
    Base Styles
 ---------------------- */
