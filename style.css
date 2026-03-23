@@ -28,7 +28,7 @@ a {
 .container {
   max-width: 1100px;
   margin: auto;
-  padding: 40px 20px;
+  padding: 2px 2px;
 }
 
 /* ----------------------
@@ -114,7 +114,7 @@ nav a.active {
    Sections
 ---------------------- */
 section {
-  padding: 20px 20px;
+  padding: 40px 20px;
   margin-bottom: 40px;
   background: #fff;
   border-radius: 10px;
@@ -123,13 +123,13 @@ section {
 h2 {
   color: #4D2177;
   font-size: 2em;
-  margin-bottom: 20px;
+  margin-bottom: 2px;
   text-align: center;
 }
 
 p {
-  font-size: 1.1em;
-  margin-bottom: 20px;
+  font-size: 1em;
+  margin-bottom: 0;
   text-align: center;
 }
 
@@ -147,7 +147,7 @@ p {
   flex: 1;
   min-width: 250px;
   background: #f9f9f9;
-  padding: 15px 15px;
+  padding: 15px;
   border-radius: 10px;
   text-align: center;
   box-shadow: 0 5px 15px rgba(0,0,0,0.1);
@@ -161,7 +161,7 @@ p {
 
 .card h3 {
   color: #4D2177;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
 }
 
 /* ----------------------
