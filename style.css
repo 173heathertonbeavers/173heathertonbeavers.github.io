@@ -260,3 +260,66 @@ form button:hover {
   background: #7C4D9E;
 }
 }
+/* CONTACT PAGE CLEAN FORM STYLE */
+.contact-page-section {
+  background: #fff;
+  padding: 60px 20px;
+  border-radius: 8px;
+}
+
+.contact-page-section h2 {
+  text-align: left;
+  margin-bottom: 5px;
+  color: #4D2177;
+}
+
+.contact-page-section p {
+  margin-bottom: 25px;
+  font-size: 1.1em;
+  text-align: left;
+}
+
+/* Form layout */
+.contact-form {
+  max-width: 650px;
+  margin: 0 auto;
+}
+
+.contact-form label {
+  display: block;
+  font-weight: bold;
+  margin: 15px 0 6px;
+  color: #4D2177;
+}
+
+.contact-form input,
+.contact-form select,
+.contact-form textarea {
+  width: 100%;
+  padding: 12px 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1em;
+  box-sizing: border-box;
+}
+
+.contact-form textarea {
+  resize: vertical;
+}
+
+.contact-form button {
+  margin-top: 20px;
+  width: 100%;
+  background: #4D2177;
+  color: white;
+  padding: 14px 20px;
+  font-size: 1.1em;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.contact-form button:hover {
+  background: #7C4D9E;
+}
