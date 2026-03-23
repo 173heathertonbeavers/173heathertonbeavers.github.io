@@ -33,8 +33,8 @@
     <h2>Contact Us</h2>
     <p>Please fill out the form below and we’ll get back to you!</p>
 
-    <!-- Formspree Form -->
-    <form id="contactForm" method="POST" action="https://formspree.io/f/your-default-endpoint">
+    <!-- Formspree Form (all submissions go to your email) -->
+    <form action="https://formspree.io/f/YOUR-FORMSPREE-ENDPOINT" method="POST">
       <label for="name">Full Name:</label>
       <input type="text" id="name" name="name" required>
 
@@ -63,26 +63,6 @@
     <p>© 2026 173rd Derby (Heatherton) Scout Group</p>
   </div>
 </footer>
-
-<script>
-  // Change Formspree endpoint based on dropdown selection
-  const form = document.getElementById('contactForm');
-  const interest = document.getElementById('interest');
-
-  const endpoints = {
-    beavers: 'https://formspree.io/f/BEAVERS-ENDPOINT',
-    cubs: 'https://formspree.io/f/CUBS-ENDPOINT',
-    scouts: 'https://formspree.io/f/SCOUTS-ENDPOINT',
-    volunteer: 'https://formspree.io/f/VOLUNTEER-ENDPOINT'
-  };
-
-  form.addEventListener('submit', function(e) {
-    const selected = interest.value;
-    if(endpoints[selected]){
-      form.action = endpoints[selected];
-    }
-  });
-</script>
 
 </body>
 </html>
