@@ -61,26 +61,27 @@
   </div>
 </footer>
 <script>
-document.querySelectorAll('.dropdown-toggle').forEach(link => {
-  link.addEventListener('click', function(e) {
-    const parent = this.parentElement;
+document.addEventListener('DOMContentLoaded', function () {
 
-    // If not open yet → open it
-    if (!parent.classList.contains('active')) {
-      e.preventDefault();
-      parent.classList.add('active');
-    }
-    // If already open → allow link to work normally
-  });
-});
+  document.querySelectorAll('.dropdown-toggle').forEach(link => {
+    link.addEventListener('click', function(e) {
+      const parent = this.parentElement;
 
-// Optional: close when tapping elsewhere
-document.addEventListener('click', function(e) {
-  document.querySelectorAll('.dropdown').forEach(drop => {
-    if (!drop.contains(e.target)) {
-      drop.classList.remove('active');
-    }
+      if (!parent.classList.contains('active')) {
+        e.preventDefault();
+        parent.classList.add('active');
+      }
+    });
   });
+
+  document.addEventListener('click', function(e) {
+    document.querySelectorAll('.dropdown').forEach(drop => {
+      if (!drop.contains(e.target)) {
+        drop.classList.remove('active');
+      }
+    });
+  });
+
 });
 </script>
 </body>
