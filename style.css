@@ -317,7 +317,7 @@ footer {
 .cards, .volunteer-section, .btn-primary, .btn-secondary {
   transition: all 0.3s ease;
 }
-.Example-photo {
+.Example-photo.jpg {
   display: block;
   max-width: 70%;       /* smaller than full width */
   height: auto;
