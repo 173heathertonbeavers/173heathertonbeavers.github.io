@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact - 173rd Derby (Heatherton) Scout Group</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <h1>173rd Derby (Heatherton) Scout Group</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="beavers.html">Beavers</a>
+      <a href="cubs.html">Cubs</a>
+      <a href="scouts.html">Scouts</a>
+      <div class="dropdown">
+        <a href="#">Volunteer ▼</a>
+        <div class="dropdown-content">
+          <a href="volunteer.html#young">Young Leaders</a>
+          <a href="volunteer.html#adult">Adults</a>
+        </div>
+      </div>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<section class="welcome">
+  <div class="container">
+    <h2>Contact Us</h2>
+    <p>Please fill out the form below and we’ll get back to you!</p>
+
+    <!-- Formspree Form -->
+    <form id="contactForm" method="POST" action="https://formspree.io/f/your-default-endpoint">
+      <label for="name">Full Name:</label>
+      <input type="text" id="name" name="name" required>
+
+      <label for="email">Email Address:</label>
+      <input type="email" id="email" name="_replyto" required>
+
+      <label for="interest">I am interested in:</label>
+      <select id="interest" name="interest" required>
+        <option value="">--Please choose an option--</option>
+        <option value="beavers">Beavers</option>
+        <option value="cubs">Cubs</option>
+        <option value="scouts">Scouts</option>
+        <option value="volunteer">Volunteering</option>
+      </select>
+
+      <label for="message">Message:</label>
+      <textarea id="message" name="message" rows="5" required></textarea>
+
+      <button type="submit" class="btn-secondary">Send Message</button>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <p>© 2026 173rd Derby (Heatherton) Scout Group</p>
+  </div>
+</footer>
+
+<script>
+  // Change Formspree endpoint based on dropdown selection
+  const form = document.getElementById('contactForm');
+  const interest = document.getElementById('interest');
+
+  const endpoints = {
+    beavers: 'https://formspree.io/f/BEAVERS-ENDPOINT',
+    cubs: 'https://formspree.io/f/CUBS-ENDPOINT',
+    scouts: 'https://formspree.io/f/SCOUTS-ENDPOINT',
+    volunteer: 'https://formspree.io/f/VOLUNTEER-ENDPOINT'
+  };
+
+  form.addEventListener('submit', function(e) {
+    const selected = interest.value;
+    if(endpoints[selected]){
+      form.action = endpoints[selected];
+    }
+  });
+</script>
+
+</body>
+</html>
