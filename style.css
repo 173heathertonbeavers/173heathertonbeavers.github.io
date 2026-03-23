@@ -367,3 +367,17 @@ nav a.active {
   color: #7C4D9E; /* darker purple */
   text-decoration: underline; /* optional */
 }
+
+   
+/* Group name styling */
+.group-name-link {
+  text-decoration: none; /* remove underline */
+  color: #4D2177;        /* Scout purple (same as nav links) */
+  font-weight: bold;
+  font-size: 1.6em;
+}
+
+.group-name-link:hover {
+  color: #4D2177;        /* same color on hover, no change */
+  text-decoration: none;  /* no underline on hover */
+}
