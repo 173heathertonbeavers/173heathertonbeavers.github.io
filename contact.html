@@ -10,23 +10,26 @@
 
 <header>
   <div class="header-inner">
-    <h1>173rd Derby (Heatherton) Scout Group</h1>
+    <!-- Clickable Group Name -->
+    <a href="index.html" class="group-name-link">173rd Derby (Heatherton) Scout Group</a>
+
+    <!-- Navigation -->
     <nav>
-  <a href="index.html">Home</a>
-  <a href="beavers.html">Beavers</a>
-  <a href="cubs.html">Cubs</a>
-  <a href="scouts.html">Scouts</a>
+      <a href="index.html">Home</a>
+      <a href="beavers.html">Beavers</a>
+      <a href="cubs.html">Cubs</a>
+      <a href="scouts.html">Scouts</a>
 
-  <div class="dropdown">
-    <a href="volunteering.html">Volunteer ▼</a> <!-- Main page -->
-    <div class="dropdown-content">
-      <a href="volunteer-young.html">Young Leaders</a>
-      <a href="volunteer-adults.html">Adults</a>
-    </div>
-  </div>
+      <div class="dropdown">
+        <a href="volunteering.html">Volunteer ▼</a>
+        <div class="dropdown-content">
+          <a href="volunteer-young.html">Young Leaders</a>
+          <a href="volunteer-adults.html">Adults</a>
+        </div>
+      </div>
 
-  <a href="contact.html" class="active">Contact</a>
-</nav>
+      <a href="contact.html">Contact</a>
+    </nav>
   </div>
 </header>
 
@@ -36,7 +39,6 @@
     <p>Use the form below to get in touch — whether you’re enquiring about Beavers, Cubs, Scouts, or volunteering opportunities.</p>
 
     <form action="https://formspree.io/f/YOUR-FORMSPREE-ENDPOINT" method="POST" class="contact-form">
-
       <label for="name">Full Name</label>
       <input type="text" id="name" name="name" placeholder="Your full name" required>
 
@@ -65,6 +67,20 @@
     <p>© 2026 173rd Derby (Heatherton) Scout Group</p>
   </div>
 </footer>
+
+<!-- Auto-highlight current page in nav -->
+<script>
+  const currentPage = location.pathname.split("/").pop();
+  const navLinks = document.querySelectorAll("nav a");
+
+  navLinks.forEach(link => {
+    if(link.getAttribute("href") === currentPage) {
+      link.classList.add("active");
+    } else {
+      link.classList.remove("active");
+    }
+  });
+</script>
 
 </body>
 </html>
