@@ -7,35 +7,10 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<div id="header"></div>
 
-<header>
-  <div class="header-inner">
-    <!-- Clickable Group Name -->
-<a href="index.html" class="group-name-link" style="color:#ffffff;">173rd Derby (Heatherton) Scout Group</a>
-    <!-- Navigation -->
-    <nav>
-      <a href="index.html" class="active">Home</a>
-<div class="dropdown">
-  <a href="beavers.html" class="dropdown-toggle">Beavers ▼</a>
-  <div class="dropdown-content">
-    <a href="Parents-Guide.html">A Parent's Guide To Beavers</a>
-    <a href="Badge-Placement.html">Badge Placement</a>
-  </div>
-</div>
-      <a href="cubs.html">Cubs</a>
-      <a href="scouts.html">Scouts</a>
-      <div class="dropdown">
-       <a href="volunteering.html" class="dropdown-toggle">Volunteer ▼</a>
-        <div class="dropdown-content">
-          <a href="volunteer-young.html">Young Leaders</a>
-          <a href="volunteer-adults.html">Adults</a>
-        </div>
-      </div>
-      <a href="contact.html">Contact</a>
-    </nav>
-  </div>
-</header>
 
+  
 <section class="welcome">
   <div class="container">
     <h2>Welcome to the 173rd Derby (Heatherton) Scout Group</h2>
@@ -75,27 +50,42 @@
   </div>
 </footer>
 <script>
-document.querySelectorAll('.dropdown-toggle').forEach(link => {
-  link.addEventListener('click', function(e) {
-    const parent = this.parentElement;
+fetch('header.html')
+  .then(response => response.text())
+  .then(data => {
+    document.getElementById('header').innerHTML = data;
 
-    // If not open yet → open it
-    if (!parent.classList.contains('active')) {
-      e.preventDefault();
-      parent.classList.add('active');
-    }
-    // If already open → allow link to work normally
-  });
-});
+    // Active link
+    const links = document.querySelectorAll('nav a');
+    const currentPage = window.location.pathname.split("/").pop();
 
-// Optional: close when tapping elsewhere
-document.addEventListener('click', function(e) {
-  document.querySelectorAll('.dropdown').forEach(drop => {
-    if (!drop.contains(e.target)) {
-      drop.classList.remove('active');
-    }
+    links.forEach(link => {
+      if (link.getAttribute("href") === currentPage) {
+        link.classList.add("active");
+      }
+    });
+
+    // 🔥 Dropdown JS (move here)
+    document.querySelectorAll('.dropdown-toggle').forEach(link => {
+      link.addEventListener('click', function(e) {
+        const parent = this.parentElement;
+
+        if (!parent.classList.contains('active')) {
+          e.preventDefault();
+          parent.classList.add('active');
+        }
+      });
+    });
+
+    document.addEventListener('click', function(e) {
+      document.querySelectorAll('.dropdown').forEach(drop => {
+        if (!drop.contains(e.target)) {
+          drop.classList.remove('active');
+        }
+      });
+    });
+
   });
-});
 </script>
 </body>
 </html>
