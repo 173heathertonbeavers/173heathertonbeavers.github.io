@@ -60,6 +60,28 @@
     <p>© 2026 173rd Derby (Heatherton) Scout Group</p>
   </div>
 </footer>
+<script>
+document.querySelectorAll('.dropdown-toggle').forEach(link => {
+  link.addEventListener('click', function(e) {
+    const parent = this.parentElement;
 
+    // If not open yet → open it
+    if (!parent.classList.contains('active')) {
+      e.preventDefault();
+      parent.classList.add('active');
+    }
+    // If already open → allow link to work normally
+  });
+});
+
+// Optional: close when tapping elsewhere
+document.addEventListener('click', function(e) {
+  document.querySelectorAll('.dropdown').forEach(drop => {
+    if (!drop.contains(e.target)) {
+      drop.classList.remove('active');
+    }
+  });
+});
+</script>
 </body>
 </html>
