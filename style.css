@@ -35,16 +35,16 @@ header {
   justify-content: space-between;
 }
 
-/* Group name styling (match navigation) */
+/* Group name link (matches nav links) */
 .group-name-link {
-  text-decoration: none;  /* remove underline */
-  color: white;           /* match nav links */
+  text-decoration: none; /* remove underline */
+  color: white;          /* match nav links */
   font-weight: bold;
   font-size: 1.6em;
 }
 
 .group-name-link:hover {
-  color: white;           /* no change on hover */
+  color: white;          /* no change on hover */
   text-decoration: none;
 }
 
@@ -57,7 +57,7 @@ nav {
 
 nav a {
   text-decoration: none;
-  color: white;                
+  color: white;          /* matches group name */
   padding: 8px 12px;
   border-radius: 4px;
   font-weight: bold;
@@ -65,13 +65,13 @@ nav a {
 }
 
 nav a:hover {
-  background: #7C4D9E;          
+  background: #7C4D9E;
   color: white;
 }
 
 /* Highlight the current page */
 nav a.active {
-  background: #7C4D9E;          
+  background: #7C4D9E;
   color: white;
 }
 
@@ -291,6 +291,17 @@ footer {
   box-sizing: border-box;
 }
 
+.contact-form textarea {
+  resize: vertical;
+}
+
 .contact-form button {
   margin-top: 20px;
+}
+
+/* ----------------------
+   Cards, Sections, Buttons & Volunteer Styling
+---------------------- */
+.cards, .volunteer-section, .btn-primary, .btn-secondary {
+  transition: all 0.3s ease;
 }
