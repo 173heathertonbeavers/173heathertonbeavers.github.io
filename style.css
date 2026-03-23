@@ -318,10 +318,9 @@ footer {
   transition: all 0.3s ease;
 }
 .group-photo {
-  display: block;
-  max-width: 20%;       /* smaller than full width */
-  height: auto;
-  margin: 20px auto 0 auto; /* center with spacing */
-  border-radius: 10px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-}
+  display: block;              /* makes it behave like a block */
+  max-width: 50%;              /* smaller, adjust as needed */
+  height: auto;                /* keeps aspect ratio */
+  margin: 20px auto 0 auto;    /* center and spacing above */
+  border-radius: 10px;         /* rounded corners */
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1); /* subtle shadow */
