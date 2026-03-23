@@ -35,16 +35,16 @@ header {
   justify-content: space-between;
 }
 
-/* Clickable group name */
+/* Group name styling (match navigation) */
 .group-name-link {
-  text-decoration: none;       
-  font-size: 1.6em;
+  text-decoration: none;  /* remove underline */
+  color: white;           /* match nav links */
   font-weight: bold;
-  color: #4D2177;              
+  font-size: 1.6em;
 }
 
 .group-name-link:hover {
-  color: #4D2177;              
+  color: white;           /* no change on hover */
   text-decoration: none;
 }
 
