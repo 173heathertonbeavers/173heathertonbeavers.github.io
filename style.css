@@ -317,11 +317,11 @@ footer {
 .cards, .volunteer-section, .btn-primary, .btn-secondary {
   transition: all 0.3s ease;
 }
-.images/Example-photo.jpg {
+.group-photo {
   display: block;
   max-width: 70%;       /* smaller than full width */
   height: auto;
-  margin: 20px auto 0 auto; /* spacing above and below */
+  margin: 20px auto 0 auto; /* center with spacing */
   border-radius: 10px;
   box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
