@@ -92,21 +92,37 @@ nav a.active {
   position: relative;
 }
 
-..dropdown-content {
+.dropdown-content {
   display: none;
+  position: absolute; /* important for layout */
+  background: white;
+  min-width: 200px;
+  border-radius: 6px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+  z-index: 1000;
 }
 
+.dropdown-content a {
+  display: block;
+  color: #222;
+  padding: 10px;
+}
+
+.dropdown-content a:hover {
+  background: #f0f0f0;
+}
+
+/* Open via JS (mobile) */
 .dropdown.active .dropdown-content {
   display: block;
 }
 
-/* Keep hover for desktop only */
-@media (hover: hover) {
+/* Hover ONLY on proper desktop devices */
+@media (hover: hover) and (pointer: fine) {
   .dropdown:hover .dropdown-content {
     display: block;
   }
 }
-
 /* ----------------------
    Sections
 ---------------------- */
