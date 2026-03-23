@@ -1,370 +1,79 @@
-/* FORCE the group name to pure white, overrides all other rules */
-header .header-inner > a.group-name-link {
-    color: #ffffff !important;       /* pure white */
-    text-decoration: none !important;
-    font-weight: bold;
-    font-size: 1.6em;
-}
-
-header .header-inner > a.group-name-link:hover {
-    color: #ffffff !important;       /* stay white on hover */
-    text-decoration: none !important;
-}
-/* ----------------------
-   Base Styles
----------------------- */
-body {
-  font-family: "Arial", sans-serif;
-  line-height: 1.6;
-  margin: 0;
-  color: #222;
-  background: #f5f5f5;
-}
-
-a {
-  text-decoration: none;
-}
-
-.container {
-  max-width: 1100px;
-  margin: auto;
-  padding: 2px 2px;
-}
-
-/* ----------------------
-   Header & Navigation
----------------------- */
-header {
-  background: #4D2177; /* Scout purple */
-  color: white;
-  padding: 10px 20px;
-}
-
-.header-inner {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-}
-
-/* Force group name link to white */
-header h1 a.group-name-link {
-  color: white !important;
-  text-decoration: none !important;
-  font-weight: bold;
-  font-size: 1.6em;
-}
-
-header h1 a.group-name-link:hover {
-  color: white !important;
-  text-decoration: none !important;
-}
-
-/* Navigation links */
-nav {
-  display: flex;
-  gap: 15px;
-  flex-wrap: wrap;
-}
-
-nav a {
-  text-decoration: none;
-  color: white;         
-  padding: 8px 12px;
-  border-radius: 4px;
-  font-weight: bold;
-  transition: background 0.3s, color 0.3s;
-}
-
-nav a:hover {
-  background: #7C4D9E;
-  color: white;
-}
-
-/* Highlight the current page */
-nav a.active {
-  background: #7C4D9E;
-  color: white;
-}
-
-/* Dropdown menu */
-.dropdown {
-  position: relative;
-}
-
-/* Hidden by default */
-.dropdown-content {
-  display: none;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  background: white;
-  min-width: 220px;
-  border-radius: 6px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.15);
-  z-index: 1000;
-}
-
-/* Dropdown links */
-.dropdown-content a {
-  display: block;
-  padding: 10px;
-  color: #222;
-}
-
-/* Show when JS adds .active */
-.dropdown.active .dropdown-content {
-  display: block;
-}
-
-/* Desktop hover ONLY */
-@media (hover: hover) and (pointer: fine) {
-  .dropdown:hover .dropdown-content {
-    display: block;
-  }
-}
-
-/* 📱 Mobile fixes */
-@media (max-width: 768px) {
-
-  .dropdown-content {
-    position: static;
-    display: none; /* 🔥 force closed unless active */
-    box-shadow: none;
-    background: transparent;
-  }
-
-  .dropdown.active .dropdown-content {
-    display: block;
-  }
-
-}
-/* ----------------------
-   Sections
----------------------- */
-section {
-  padding: 40px 20px;
-  margin-bottom: 40px;
-  background: #fff;
-  border-radius: 10px;
-}
-
-h2 {
-  color: #4D2177;
-  font-size: 2em;
-  margin-bottom: 2px;
-  text-align: center;
-}
-
-p {
-  font-size: 1em;
-  margin-bottom: 0;
-  text-align: center;
-}
-
-/* ----------------------
-   Cards (Beavers, Cubs, Scouts)
----------------------- */
-.cards {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: center;
-}
-
-.card {
-  flex: 1;
-  min-width: 250px;
-  background: #f9f9f9;
-  padding: 15px;
-  border-radius: 10px;
-  text-align: center;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(0,0,0,0.15);
-}
-
-.card h3 {
-  color: #4D2177;
-  margin-bottom: 8px;
-}
-
-/* ----------------------
-   Volunteer Section
----------------------- */
-.volunteer-section {
-  text-align: center;
-  background: #f0f0f0;
-}
-
-.btn-primary, .btn-secondary {
-  display: inline-block;
-  background: #4D2177;
-  color: white;
-  padding: 12px 25px;
-  border-radius: 6px;
-  font-weight: bold;
-  margin-top: 15px;
-  transition: background 0.3s;
-}
-
-.btn-primary:hover, .btn-secondary:hover {
-  background: #7C4D9E;
-}
-
-/* ----------------------
-   Contact Form
----------------------- */
-form label {
-  display: block;
-  margin-top: 15px;
-  margin-bottom: 5px;
-  font-weight: bold;
-  color: #4D2177;
-}
-
-form input, form select, form textarea {
-  width: 100%;
-  padding: 12px;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-  box-sizing: border-box;
-  margin-bottom: 10px;
-  font-size: 1em;
-}
-
-form textarea {
-  resize: vertical;
-}
-
-form button {
-  margin-top: 15px;
-  cursor: pointer;
-  display: inline-block;
-  width: 100%;
-  background: #4D2177;
-  color: white;
-  padding: 14px 20px;
-  font-size: 1.1em;
-  font-weight: bold;
-  border: none;
-  border-radius: 6px;
-  transition: background 0.3s;
-}
-
-form button:hover {
-  background: #7C4D9E;
-}
-
-/* ----------------------
-   Footer
----------------------- */
-footer {
-  background: #111;
-  color: white;
-  text-align: center;
-  padding: 20px;
-}
-
-/* ----------------------
-   Responsive
----------------------- */
-@media(max-width: 768px) {
-  .cards {
-    flex-direction: column;
-  }
-
-  nav {
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .contact-section, .contact-page-section, .contact-form-wrapper {
-    padding: 40px 20px;
-  }
-}
-
-/* ----------------------
-   Contact Page Sections
----------------------- */
-.contact-page-section {
-  background: #fff;
-  padding: 60px 20px;
-  border-radius: 8px;
-}
-
-.contact-page-section h2 {
-  text-align: left;
-  margin-bottom: 5px;
-  color: #4D2177;
-}
-
-.contact-page-section p {
-  margin-bottom: 25px;
-  font-size: 1.1em;
-  text-align: left;
-}
-
-.contact-form {
-  max-width: 650px;
-  margin: 0 auto;
-}
-
-.contact-form label {
-  display: block;
-  font-weight: bold;
-  margin: 15px 0 6px;
-  color: #4D2177;
-}
-
-.contact-form input,
-.contact-form select,
-.contact-form textarea {
-  width: 100%;
-  padding: 12px 10px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  font-size: 1em;
-  box-sizing: border-box;
-}
-
-.contact-form textarea {
-  resize: vertical;
-}
-
-.contact-form button {
-  margin-top: 20px;
-}
-
-/* ----------------------
-   Cards, Sections, Buttons & Volunteer Styling
----------------------- */
-.cards, .volunteer-section, .btn-primary, .btn-secondary {
-  transition: all 0.3s ease;
-}
-.group-photo {
-  display: block;              /* makes it behave like a block */
-  max-width: 50%;              /* smaller, adjust as needed */
-  height: auto;                /* keeps aspect ratio */
-  margin: 20px auto 0 auto;    /* center and spacing above */
-  border-radius: 10px;         /* rounded corners */
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1); /* subtle shadow */
-}
-
-/* 🔥 FORCE mobile dropdowns to behave properly */
-@media (max-width: 768px) {
-
-  .dropdown-content {
-    display: none !important;
-  }
-
-  .dropdown.active .dropdown-content {
-    display: block !important;
-  }
-
-}
-    
+/* ======================================================   GLOBAL / BASE STYLES  ====================================================== */
+body {  font-family: Arial, sans-serif;  line-height: 1.6;  margin: 0;  color: #222;  background: #f5f5f5; }
+                     /* Remove underline from all links by default */
+a { text-decoration: none; }
+                     /* Standard content container */
+.container {  max-width: 1100px;  margin: auto;  padding: 2px; }
+/* ======================================================  HEADER & NAVIGATION ====================================================== */
+header {  background: #4D2177;   color: white;  padding: 10px 20px; }
+                                      /* Layout: logo left, nav right */
+.header-inner {  display: flex;  flex-wrap: wrap;  align-items: center;  justify-content: space-between;}
+                                          /* Group name (logo text) */
+.group-name-link { color: #fff !important; text-decoration: none !important; font-weight: bold;  font-size: 1.6em; }
+                                        /* Keep it white on hover */
+.group-name-link:hover {  color: #fff !important;}
+/* ----------------------  Navigation links ---------------------- */
+nav {  display: flex;  gap: 15px;  flex-wrap: wrap;}
+                                 /* Main nav links */
+nav a {  color: white;  padding: 8px 12px;  border-radius: 4px;  font-weight: bold; transition: background 0.3s; }
+                                 /* Hover effect */
+nav a:hover { background: #7C4D9E;}
+                                 /* Active page highlight */
+nav a.active {  background: #7C4D9E; }
+/* ======================================================  DROPDOWN MENU ====================================================== */
+                                       /* Parent container */
+.dropdown {  position: relative; }
+                                      /* Hidden dropdown content */
+.dropdown-content { display: none; position: absolute; top: 100%;left: 0; background: white; min-width: 220px; border-radius: 6px; box-shadow: 0 5px 15px rgba(0,0,0,0.15); z-index: 1000;}
+                                            /* Links inside dropdown */
+.dropdown-content a {  display: block;  padding: 10px;  color: #222; }
+                                        /* Show when JS adds .active */
+.dropdown.active .dropdown-content {  display: block;}
+                                         /* Desktop: allow hover interaction */
+@media (hover: hover) and (pointer: fine) { .dropdown:hover .dropdown-content {  display: block;  } }
+/* ======================================================  MOBILE NAVIGATION FIXES ====================================================== */
+@media (max-width: 768px) { 
+                                          /* Stack nav vertically */
+  nav {  flex-direction: column;  gap: 10px; }
+                                         /* Make dropdown inline instead of floating */
+  .dropdown-content {  position: static;  display: none !important; /* force hidden */  box-shadow: none;  background: transparent;}
+                                           /* Only show when tapped */
+  .dropdown.active .dropdown-content {    display: block !important;  } }
+/* ======================================================  PAGE SECTIONS ====================================================== */
+section {  padding: 40px 20px;  margin-bottom: 40px;  background: #fff;  border-radius: 10px; }
+                                            /* Headings */
+h2 {  color: #4D2177;  font-size: 2em;  text-align: center; }
+                                           /* Paragraphs */
+p {  text-align: center; }
+/* ======================================================   CARD LAYOUT (Beavers, Cubs, Scouts) ====================================================== */
+.cards {  display: flex;  flex-wrap: wrap;  gap: 20px;  justify-content: center; }
+                                              /* Individual card */
+.card { flex: 1; min-width: 250px; background: #f9f9f9; padding: 15px; border-radius: 10px; text-align: center; box-shadow: 0 5px 15px rgba(0,0,0,0.1); transition: transform 0.3s, box-shadow 0.3s;}
+                                                /* Hover animation */
+.card:hover {  transform: translateY(-5px);  box-shadow: 0 10px 20px rgba(0,0,0,0.15);}
+.card h3 {  color: #4D2177;}
+/* ======================================================   BUTTONS / VOLUNTEER SECTION ====================================================== */
+.volunteer-section {  text-align: center;  background: #f0f0f0;}
+                                                     /* Primary buttons */
+.btn-primary, .btn-secondary {  display: inline-block;  background: #4D2177;  color: white;  padding: 12px 25px;  border-radius: 6px;  font-weight: bold;  margin-top: 15px;  transition: background 0.3s; }
+.btn-primary:hover,
+.btn-secondary:hover {  background: #7C4D9E;}
+/* ====================================================== FORMS (Contact page)====================================================== */
+form label {  display: block;  margin-top: 15px;  font-weight: bold;  color: #4D2177;}
+form input,
+form select,
+form textarea { width: 100%; padding: 12px; border-radius: 6px; border: 1px solid #ccc; margin-bottom: 10px; font-size: 1em;}
+form textarea {  resize: vertical;}
+form button {  width: 100%;  background: #4D2177;  color: white;  padding: 14px;  font-size: 1.1em;  font-weight: bold;  border: none;  border-radius: 6px;}
+form button:hover {  background: #7C4D9E;}
+/* ======================================================   CONTACT PAGE LAYOUT====================================================== */
+.contact-page-section {  padding: 60px 20px;}
+.contact-page-section h2,
+.contact-page-section p {  text-align: left;}
+.contact-form {  max-width: 650px;  margin: 0 auto;}
+/* ======================================================  FOOTER ====================================================== */
+footer {  background: #111;  color: white;  text-align: center;  padding: 20px;}
+/* ====================================================== RESPONSIVE (GENERAL) ====================================================== */
+@media(max-width: 768px) {  .cards {   flex-direction: column;  }}
+/* ====================================================== IMAGE STYLING====================================================== */
+.group-photo { display: block;  max-width: 50%;  height: auto;  margin: 20px auto 0;  border-radius: 10px;  box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
