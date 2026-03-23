@@ -92,36 +92,52 @@ nav a.active {
   position: relative;
 }
 
+/* Hidden by default */
 .dropdown-content {
   display: none;
-  position: absolute; /* important for layout */
+  position: absolute;
+  top: 100%;
+  left: 0;
   background: white;
-  min-width: 200px;
+  min-width: 220px;
   border-radius: 6px;
   box-shadow: 0 5px 15px rgba(0,0,0,0.15);
   z-index: 1000;
 }
 
+/* Dropdown links */
 .dropdown-content a {
   display: block;
-  color: #222;
   padding: 10px;
+  color: #222;
 }
 
-.dropdown-content a:hover {
-  background: #f0f0f0;
-}
-
-/* Open via JS (mobile) */
+/* Show when JS adds .active */
 .dropdown.active .dropdown-content {
   display: block;
 }
 
-/* Hover ONLY on proper desktop devices */
+/* Desktop hover ONLY */
 @media (hover: hover) and (pointer: fine) {
   .dropdown:hover .dropdown-content {
     display: block;
   }
+}
+
+/* 📱 Mobile fixes */
+@media (max-width: 768px) {
+
+  .dropdown-content {
+    position: static;
+    display: none; /* 🔥 force closed unless active */
+    box-shadow: none;
+    background: transparent;
+  }
+
+  .dropdown.active .dropdown-content {
+    display: block;
+  }
+
 }
 /* ----------------------
    Sections
