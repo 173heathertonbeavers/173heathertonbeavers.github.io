@@ -1,14 +1,14 @@
-/* Force the group name to white */
+/* FORCE the group name to pure white, overrides all other rules */
 header .header-inner > a.group-name-link {
-  color: white !important;
-  text-decoration: none !important;
-  font-weight: bold;
-  font-size: 1.6em;
+    color: #ffffff !important;       /* pure white */
+    text-decoration: none !important;
+    font-weight: bold;
+    font-size: 1.6em;
 }
 
 header .header-inner > a.group-name-link:hover {
-  color: white !important;
-  text-decoration: none !important;
+    color: #ffffff !important;       /* stay white on hover */
+    text-decoration: none !important;
 }
 /* ----------------------
    Base Styles
