@@ -114,8 +114,8 @@ nav a.active {
    Sections
 ---------------------- */
 section {
-  padding: 2px 2px;
-  margin-bottom: 4px;
+  padding: 40px 20px;
+  margin-bottom: 40px;
   background: #fff;
   border-radius: 10px;
 }
@@ -128,8 +128,8 @@ h2 {
 }
 
 p {
-  font-size: 1.1em;
-  margin-bottom: 2px;
+  font-size: 1em;
+  margin-bottom: 0;
   text-align: center;
 }
 
@@ -139,7 +139,7 @@ p {
 .cards {
   display: flex;
   flex-wrap: wrap;
-  gap: 2px;
+  gap: 20px;
   justify-content: center;
 }
 
@@ -147,7 +147,7 @@ p {
   flex: 1;
   min-width: 250px;
   background: #f9f9f9;
-  padding: 2px 2px;
+  padding: 15px;
   border-radius: 10px;
   text-align: center;
   box-shadow: 0 5px 15px rgba(0,0,0,0.1);
@@ -161,7 +161,7 @@ p {
 
 .card h3 {
   color: #4D2177;
-  margin-bottom: 2px;
+  margin-bottom: 8px;
 }
 
 /* ----------------------
