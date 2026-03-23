@@ -323,3 +323,8 @@ form button:hover {
 .contact-form button:hover {
   background: #7C4D9E;
 }
+/* Highlight the current page link */
+nav a.active {
+  background: #7C4D9E;
+  border-radius: 4px;
+}
