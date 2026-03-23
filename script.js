@@ -13,24 +13,30 @@ fetch('header.html')
       }
     });
 
-    // Dropdown toggle
-    document.querySelectorAll('.dropdown-toggle').forEach(link => {
-      link.addEventListener('click', function(e) {
-        const parent = this.parentElement;
+    // 🔥 Delay fixes mobile inconsistency
+    setTimeout(() => {
 
-        if (!parent.classList.contains('active')) {
-          e.preventDefault();
-          parent.classList.add('active');
-        }
-      });
-    });
+      // Dropdown toggle
+      document.querySelectorAll('.dropdown-toggle').forEach(link => {
+        link.addEventListener('click', function(e) {
+          const parent = this.parentElement;
 
-    // Close when clicking outside
-    document.addEventListener('click', function(e) {
-      document.querySelectorAll('.dropdown').forEach(drop => {
-        if (!drop.contains(e.target)) {
-          drop.classList.remove('active');
-        }
+          if (!parent.classList.contains('active')) {
+            e.preventDefault();
+            parent.classList.add('active');
+          }
+        });
       });
-    });
+
+      // Close when clicking outside
+      document.addEventListener('click', function(e) {
+        document.querySelectorAll('.dropdown').forEach(drop => {
+          if (!drop.contains(e.target)) {
+            drop.classList.remove('active');
+          }
+        });
+      });
+
+    }, 50); // small delay = big reliability boost
+
   });
