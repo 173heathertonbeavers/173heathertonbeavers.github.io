@@ -3,209 +3,62 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>173 Heatherton Scouts</title>
-
-<style>
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-}
-
-/* Header */
-header {
-    background: #006b3f;
-    color: white;
-    padding: 15px 20px;
-}
-
-header h1 {
-    margin: 0;
-}
-
-/* Navigation */
-nav {
-    background: #004d2a;
-    display: flex;
-    flex-wrap: wrap;
-}
-
-nav a {
-    color: white;
-    padding: 12px 15px;
-    text-decoration: none;
-}
-
-nav a:hover {
-    background: #006b3f;
-}
-
-/* Dropdown */
-.dropdown {
-    position: relative;
-}
-
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background: #004d2a;
-    min-width: 150px;
-}
-
-.dropdown-content a {
-    display: block;
-}
-
-.dropdown:hover .dropdown-content {
-    display: block;
-}
-
-/* Hero */
-.hero {
-    background: url('https://images.unsplash.com/photo-1500530855697-b586d89ba3ee') center/cover;
-    color: white;
-    text-align: center;
-    padding: 80px 20px;
-}
-
-.hero h2 {
-    font-size: 2.5em;
-}
-
-/* Sections */
-section {
-    padding: 40px 20px;
-}
-
-.container {
-    max-width: 1000px;
-    margin: auto;
-}
-
-/* Cards */
-.cards {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-}
-
-.card {
-    flex: 1;
-    min-width: 250px;
-    background: #f4f4f4;
-    padding: 20px;
-    border-radius: 8px;
-}
-
-/* Contact Form */
-form input, form textarea {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
-}
-
-button {
-    background: #006b3f;
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    cursor: pointer;
-}
-
-button:hover {
-    background: #004d2a;
-}
-
-/* Footer */
-footer {
-    background: #222;
-    color: white;
-    text-align: center;
-    padding: 20px;
-}
-</style>
-
+<title>173rd Derby (Heatherton) Scout Group</title>
+<link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
 <header>
-    <h1>173 Heatherton Scouts</h1>
+    <h1>173rd Derby (Heatherton) Scout Group</h1>
 </header>
 
 <nav>
-    <a href="#home">Home</a>
-    <a href="#beavers">Beavers</a>
-    <a href="#cubs">Cubs</a>
-    <a href="#scouts">Scouts</a>
-
+    <a href="index.html">Home</a>
+    <a href="beavers.html">Beavers</a>
+    <a href="cubs.html">Cubs</a>
+    <a href="scouts.html">Scouts</a>
     <div class="dropdown">
         <a href="#">Volunteer ▼</a>
         <div class="dropdown-content">
-            <a href="#young-leader">Young Leaders</a>
-            <a href="#adult">Adult Volunteers</a>
+            <a href="volunteer.html#young">Young Leaders</a>
+            <a href="volunteer.html#adult">Adults</a>
         </div>
     </div>
-
-    <a href="#contact">Contact</a>
+    <a href="contact.html">Contact</a>
 </nav>
 
-<section class="hero" id="home">
-    <h2>Adventure Starts Here</h2>
-    <p>Join 173 Heatherton Scouts and discover new skills, friendships, and challenges.</p>
+<section class="hero">
+    <h2>Skills for Life</h2>
+    <p>Adventure, teamwork, and fun for young people in Heatherton, Derby.</p>
+    <a href="contact.html" class="hero-button">Join Us</a>
 </section>
 
-<section id="beavers">
 <div class="container">
-    <h2>Beavers</h2>
-    <p>For ages 6–8. Beavers enjoy fun, games, and outdoor adventures while learning new skills.</p>
+    <section class="welcome">
+        <h2>Welcome</h2>
+        <p>We are a friendly and active Scout Group based in Heatherton, Derby. We provide exciting activities for young people aged 6–14. Join Beavers, Cubs, and Scouts for outdoor adventures, skills, and fun!</p>
+    </section>
+
+    <section class="groups">
+        <div class="cards">
+            <div class="card">
+                <h3>Beavers</h3>
+                <p>Ages 6–8. Fun, games, and first adventures.</p>
+            </div>
+            <div class="card">
+                <h3>Cubs</h3>
+                <p>Ages 8–10½. Learn new skills and earn badges.</p>
+            </div>
+            <div class="card">
+                <h3>Scouts</h3>
+                <p>Ages 10½–14. Big adventures and leadership opportunities.</p>
+            </div>
+        </div>
+    </section>
 </div>
-</section>
-
-<section id="cubs" style="background:#f4f4f4;">
-<div class="container">
-    <h2>Cubs</h2>
-    <p>For ages 8–10½. Cubs build confidence through activities, badges, and teamwork.</p>
-</div>
-</section>
-
-<section id="scouts">
-<div class="container">
-    <h2>Scouts</h2>
-    <p>For ages 10½–14. Scouts take on bigger adventures like camping, hiking, and leadership challenges.</p>
-</div>
-</section>
-
-<section id="young-leader" style="background:#f4f4f4;">
-<div class="container">
-    <h2>Young Leaders</h2>
-    <p>Aged 14–18? Become a Young Leader and gain leadership skills while supporting younger sections.</p>
-</div>
-</section>
-
-<section id="adult">
-<div class="container">
-    <h2>Adult Volunteers</h2>
-    <p>Help run activities, support young people, and make a difference in your community.</p>
-</div>
-</section>
-
-<section id="contact" style="background:#f4f4f4;">
-<div class="container">
-    <h2>Contact Us</h2>
-
-    <form>
-        <input type="text" placeholder="Your Name" required>
-        <input type="email" placeholder="Your Email" required>
-        <textarea rows="5" placeholder="Your Message"></textarea>
-        <button type="submit">Send Message</button>
-    </form>
-
-</div>
-</section>
 
 <footer>
-    <p>© 2026 173 Heatherton Scouts</p>
+    <p>© 2026 173rd Derby (Heatherton) Scout Group | All Rights Reserved</p>
 </footer>
 
 </body>
