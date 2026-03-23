@@ -12,31 +12,37 @@ fetch('header.html')
         link.classList.add("active");
       }
     });
-
-    // 🔥 Delay fixes mobile inconsistency
-    setTimeout(() => {
-
-      // Dropdown toggle
-      document.querySelectorAll('.dropdown-toggle').forEach(link => {
-        link.addEventListener('click', function(e) {
-          const parent = this.parentElement;
-
-          if (!parent.classList.contains('active')) {
-            e.preventDefault();
-            parent.classList.add('active');
-          }
-        });
-      });
-
-      // Close when clicking outside
-      document.addEventListener('click', function(e) {
-        document.querySelectorAll('.dropdown').forEach(drop => {
-          if (!drop.contains(e.target)) {
-            drop.classList.remove('active');
-          }
-        });
-      });
-
-    }, 50); // small delay = big reliability boost
-
   });
+
+
+// 🔥 EVENT DELEGATION (this fixes your issue completely)
+document.addEventListener('click', function(e) {
+
+  const toggle = e.target.closest('.dropdown-toggle');
+
+  // If clicking a dropdown toggle
+  if (toggle) {
+    const parent = toggle.parentElement;
+
+    if (!parent.classList.contains('active')) {
+      e.preventDefault();
+
+      // Close other dropdowns
+      document.querySelectorAll('.dropdown').forEach(d => {
+        d.classList.remove('active');
+      });
+
+      parent.classList.add('active');
+    }
+
+    return;
+  }
+
+  // Clicking outside → close all
+  document.querySelectorAll('.dropdown').forEach(drop => {
+    if (!drop.contains(e.target)) {
+      drop.classList.remove('active');
+    }
+  });
+
+});
