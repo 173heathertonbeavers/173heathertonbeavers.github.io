@@ -35,17 +35,17 @@ header {
   justify-content: space-between;
 }
 
-/* Group name link (matches nav links) */
-.group-name-link {
-  text-decoration: none; /* remove underline */
-  color: white;          /* match nav links */
+/* Force group name link to white */
+header h1 a.group-name-link {
+  color: white !important;
+  text-decoration: none !important;
   font-weight: bold;
   font-size: 1.6em;
 }
 
-.group-name-link:hover {
-  color: white;          /* no change on hover */
-  text-decoration: none;
+header h1 a.group-name-link:hover {
+  color: white !important;
+  text-decoration: none !important;
 }
 
 /* Navigation links */
@@ -57,7 +57,7 @@ nav {
 
 nav a {
   text-decoration: none;
-  color: white;          /* matches group name */
+  color: white;         
   padding: 8px 12px;
   border-radius: 4px;
   font-weight: bold;
