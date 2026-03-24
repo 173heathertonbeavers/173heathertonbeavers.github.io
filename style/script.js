@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // 🧠 Get correct base path (GitHub-safe)
   // ===============================
   const base = window.location.pathname.includes('.github.io')
-    ? '/YOUR-REPO-NAME/'
+    ? '/173-Heatherton-Scouts/'
     : '/';
 
 
