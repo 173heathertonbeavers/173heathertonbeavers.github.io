@@ -25,6 +25,9 @@ nav a.active {  background: #7C4D9E; }
 .dropdown {  position: relative; }
                                       /* Hidden dropdown content */
 .dropdown-content { display: none; position: absolute; top: 100%;left: 0; background: #4D2177; min-width: 220px; border-radius: 6px; box-shadow: 0 5px 15px rgba(0,0,0,0.15); z-index: 1000;}
+                                            /* Dropdown smaller and listed */
+.dropdown-content a::before {content: "• ";  margin-right: 5px;}
+.dropdown-content a { font-size: 0.9em; /* or 14px */ }
                                             /* Links inside dropdown */
 .dropdown-content a {  display: block;  padding: 10px;  color: white; }
                                         /* Show when JS adds .active */
