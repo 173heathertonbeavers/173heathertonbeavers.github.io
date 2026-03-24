@@ -1,5 +1,5 @@
 Using Cards with Links: 
-<section class="sections">
+/*<section class="sections">
   <div class="container">
     <h2>CONTAINTER TITLE</h2>
   <div class="cards">
@@ -10,4 +10,4 @@ Using Cards with Links:
   </info-card>
   </div>
      </div>
-</section>
+</section> /*
