@@ -28,11 +28,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
   // ===============================
-  // 🧠 Get correct base path (GitHub-safe)
+  // 🧠 Get correct base path (WORKING VERSION)
   // ===============================
-  const base = window.location.pathname.includes('.github.io')
-    ? '/173-Heatherton-Scouts/'
-    : '/';
+  const pathParts = window.location.pathname.split('/');
+  const repoName = pathParts[1]; // e.g. "173-Heatherton-Scouts"
+
+  const base = window.location.hostname.includes('github.io')
+    ? `/${repoName}/`
+    : './';
 
 
   // ===============================
@@ -41,7 +44,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const headerEl = document.getElementById('header');
 
   if (headerEl) {
-    fetch('/components/header.html')
+    fetch(base + 'components/header.html')
       .then(res => res.text())
       .then(data => {
         headerEl.innerHTML = data;
@@ -78,7 +81,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const footerEl = document.getElementById('footer');
 
   if (footerEl) {
-  fetch('/components/footer.html')
+    fetch(base + 'components/footer.html')
       .then(res => res.text())
       .then(data => {
         footerEl.innerHTML = data;
