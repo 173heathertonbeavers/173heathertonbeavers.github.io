@@ -24,9 +24,9 @@ nav a.active {  background: #7C4D9E; }
                                        /* Parent container */
 .dropdown {  position: relative; }
                                       /* Hidden dropdown content */
-.dropdown-content { display: none; position: absolute; top: 100%;left: 0; background: white; min-width: 220px; border-radius: 6px; box-shadow: 0 5px 15px rgba(0,0,0,0.15); z-index: 1000;}
+.dropdown-content { display: none; position: absolute; top: 100%;left: 0; background: #4D2177; min-width: 220px; border-radius: 6px; box-shadow: 0 5px 15px rgba(0,0,0,0.15); z-index: 1000;}
                                             /* Links inside dropdown */
-.dropdown-content a {  display: block;  padding: 10px;  color: #222; }
+.dropdown-content a {  display: block;  padding: 10px;  color: white; }
                                         /* Show when JS adds .active */
 .dropdown.active .dropdown-content {  display: block;}
                                          /* Desktop: allow hover interaction */
