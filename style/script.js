@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const headerEl = document.getElementById('header');
 
   if (headerEl) {
-    fetch('header.html')
+    fetch('/components/header.html')
       .then(response => {
         if (!response.ok) {
           throw new Error("Header file not found");
@@ -47,7 +47,7 @@ document.addEventListener("DOMContentLoaded", () => {
 const footerEl = document.getElementById('footer');
 
 if (footerEl) {
-  fetch('footer.html')
+  fetch('/components/footer.html')
     .then(response => {
       if (!response.ok) {
         throw new Error("Footer file not found");
