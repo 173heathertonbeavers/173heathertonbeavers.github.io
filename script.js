@@ -53,4 +53,21 @@ document.addEventListener('click', function(e) {
     }
   });
 
-});
+class InfoCard extends HTMLElement {
+  connectedCallback() {
+    const title = this.getAttribute('title') || '';
+    const content = this.getAttribute('content') || '';
+    const link = this.getAttribute('link') || '#';
+
+    this.innerHTML = `
+      <a href="${link}" class="card-link">
+        <div class="card">
+          <h3>${title}</h3>
+          <p>${content}</p>
+        </div>
+      </a>
+    `;
+  }
+}
+
+customElements.define('info-card', InfoCard);});
