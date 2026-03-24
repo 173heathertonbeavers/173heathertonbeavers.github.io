@@ -1,5 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
 
+  console.log("✅ JS LOADED");
+
   // ===============================
   // 🧩 Web Component: Info Card
   // ===============================
@@ -26,15 +28,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
   // ===============================
-  // 🧠 Helper: Get correct path depth
+  // 🧠 Get correct base path (GitHub-safe)
   // ===============================
-  function getBasePath() {
-    const path = window.location.pathname;
-    const depth = path.split('/').length - 2;
-    return depth > 0 ? '../'.repeat(depth) : '';
-  }
-
-  const base = getBasePath();
+  const base = window.location.pathname.includes('.github.io')
+    ? '/YOUR-REPO-NAME/'
+    : '/';
 
 
   // ===============================
