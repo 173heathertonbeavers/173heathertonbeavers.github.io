@@ -1,6 +1,6 @@
 Using Cards with Links: 
-```<section class="sections">
-  <div class="container">
+```<section class="sections"> ```
+```  <div class="container">
     <h2>CONTAINTER TITLE</h2>
   <div class="cards">
   <info-card 
