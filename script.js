@@ -7,13 +7,21 @@ fetch('header.html')
     const links = document.querySelectorAll('nav a');
     const currentPage = window.location.pathname.split("/").pop();
 
-    links.forEach(link => {
-      if (link.getAttribute("href") === currentPage) {
-        link.classList.add("active");
-      }
-    });
-  });
+links.forEach(link => {
+  if (link.getAttribute("href") === currentPage) {
+    link.classList.add("active");
 
+    // 🔥 NEW: activate parent dropdown
+    const dropdown = link.closest('.dropdown');
+    if (dropdown) {
+      dropdown.classList.add('active'); // keeps it open (mobile)
+      const parentLink = dropdown.querySelector('.dropdown-toggle');
+      if (parentLink) {
+        parentLink.classList.add('active'); // highlights parent
+      }
+    }
+  }
+});
 
 // 🔥 EVENT DELEGATION (this fixes your issue completely)
 document.addEventListener('click', function(e) {
