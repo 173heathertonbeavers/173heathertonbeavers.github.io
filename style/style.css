@@ -51,7 +51,7 @@ p {  text-align: center; }
 /* ======================================================   CARD LAYOUT (Beavers, Cubs, Scouts) ====================================================== */
 .cards {  display: flex;  flex-wrap: wrap;  gap: 20px;  justify-content: center; }
 /* Layout: 3 per row */
-info-card {  flex: 1 1 calc(33.333% - 20px);  max-width: calc(33.333% - 20px);}
+info-card {  display: block; flex: 1 1 calc(33.333% - 20px);  max-width: calc(33.333% - 20px);}
 /* Full width (Volunteering) */
 info-card.full-width {  flex: 1 1 100%;  max-width: 100%;}
 /* Inner card styling ONLY */

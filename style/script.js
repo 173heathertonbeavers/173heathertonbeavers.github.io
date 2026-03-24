@@ -1,5 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
 
+  console.log("✅ JS LOADED");
+
   // ===============================
   // 🧩 Web Component: Info Card
   // ===============================
@@ -20,10 +22,20 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // جلوگیری duplicate error (safe define)
   if (!customElements.get('info-card')) {
     customElements.define('info-card', InfoCard);
   }
+
+
+  // ===============================
+  // 🧠 Get correct base path (WORKING VERSION)
+  // ===============================
+  const pathParts = window.location.pathname.split('/');
+  const repoName = pathParts[1]; // e.g. "173-Heatherton-Scouts"
+
+  const base = window.location.hostname.includes('github.io')
+    ? `/${repoName}/`
+    : './';
 
 
   // ===============================
@@ -32,48 +44,21 @@ document.addEventListener("DOMContentLoaded", () => {
   const headerEl = document.getElementById('header');
 
   if (headerEl) {
-    fetch('header.html')
-      .then(response => {
-        if (!response.ok) {
-          throw new Error("Header file not found");
-        }
-        return response.text();
-      })
+   fetch('/173-Heatherton-Scouts/components/header.html')
+      .then(res => res.text())
       .then(data => {
         headerEl.innerHTML = data;
-// ===============================
-// 📥 Load Footer
-// ===============================
-const footerEl = document.getElementById('footer');
 
-if (footerEl) {
-  fetch('footer.html')
-    .then(response => {
-      if (!response.ok) {
-        throw new Error("Footer file not found");
-      }
-      return response.text();
-    })
-    .then(data => {
-      footerEl.innerHTML = data;
-    })
-    .catch(err => {
-      console.error("❌ Footer failed to load:", err);
-    });
-}
-        // ===============================
-        // 🎯 Active Page Highlight
-        // ===============================
+        // Active link highlight
         const links = document.querySelectorAll('nav a');
-        const currentPage = window.location.pathname.split("/").pop() || "index.html";
+        const currentPath = window.location.pathname;
 
         links.forEach(link => {
           const href = link.getAttribute("href");
 
-          if (href === currentPage) {
+          if (currentPath.endsWith(href)) {
             link.classList.add("active");
 
-            // Highlight parent dropdown
             const dropdown = link.closest('.dropdown');
             if (dropdown) {
               dropdown.classList.add('active');
@@ -86,9 +71,22 @@ if (footerEl) {
           }
         });
       })
-      .catch(err => {
-        console.error("❌ Header failed to load:", err);
-      });
+      .catch(err => console.error("❌ Header failed:", err));
+  }
+
+
+  // ===============================
+  // 📥 Load Footer
+  // ===============================
+  const footerEl = document.getElementById('footer');
+
+  if (footerEl) {
+  fetch('/173-Heatherton-Scouts/components/footer.html')
+      .then(res => res.text())
+      .then(data => {
+        footerEl.innerHTML = data;
+      })
+      .catch(err => console.error("❌ Footer failed:", err));
   }
 
 
@@ -99,14 +97,12 @@ if (footerEl) {
 
     const toggle = e.target.closest('.dropdown-toggle');
 
-    // If clicking a dropdown toggle
     if (toggle) {
       const parent = toggle.parentElement;
 
       if (!parent.classList.contains('active')) {
         e.preventDefault();
 
-        // Close other dropdowns
         document.querySelectorAll('.dropdown').forEach(d => {
           d.classList.remove('active');
         });
@@ -117,7 +113,6 @@ if (footerEl) {
       return;
     }
 
-    // Clicking outside → close all
     document.querySelectorAll('.dropdown').forEach(drop => {
       if (!drop.contains(e.target)) {
         drop.classList.remove('active');

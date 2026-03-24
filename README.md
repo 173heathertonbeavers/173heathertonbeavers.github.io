@@ -14,3 +14,7 @@ Using Cards with Links:
   </div>
 </section>
 ```
+
+Later (custom domain):
+You just change:
+'''<base href="/">'''
