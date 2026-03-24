@@ -55,6 +55,8 @@ p {  text-align: center; }
                                                 /* Hover animation */
 .card:hover {  transform: translateY(-5px);  box-shadow: 0 10px 20px rgba(0,0,0,0.15);}
 .card h3 {  color: #4D2177;}
+                                              /* Card Link */
+.card-link { text-decoration: none; color: inherit; display: block;}
 /* ======================================================   BUTTONS / VOLUNTEER SECTION ====================================================== */
 .volunteer-section {  text-align: center;  background: #f0f0f0;}
                                                      /* Primary buttons */
