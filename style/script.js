@@ -26,29 +26,38 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
   // ===============================
+  // 🧠 Helper: Get correct path depth
+  // ===============================
+  function getBasePath() {
+    const path = window.location.pathname;
+    const depth = path.split('/').length - 2;
+    return depth > 0 ? '../'.repeat(depth) : '';
+  }
+
+  const base = getBasePath();
+
+
+  // ===============================
   // 📥 Load Header
   // ===============================
   const headerEl = document.getElementById('header');
 
   if (headerEl) {
-    fetch('components/header.html')
+    fetch(base + 'components/header.html')
       .then(res => res.text())
       .then(data => {
         headerEl.innerHTML = data;
 
-        // ===============================
-        // 🎯 Active Page Highlight (FIXED)
-        // ===============================
+        // Active link highlight
         const links = document.querySelectorAll('nav a');
         const currentPath = window.location.pathname;
 
         links.forEach(link => {
           const href = link.getAttribute("href");
 
-          if (href === currentPath) {
+          if (currentPath.endsWith(href)) {
             link.classList.add("active");
 
-            // Highlight parent dropdown
             const dropdown = link.closest('.dropdown');
             if (dropdown) {
               dropdown.classList.add('active');
@@ -66,12 +75,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
   // ===============================
-  // 📥 Load Footer (SEPARATE FIX)
+  // 📥 Load Footer
   // ===============================
   const footerEl = document.getElementById('footer');
 
   if (footerEl) {
-    fetch('components/footer.html')
+    fetch(base + 'components/footer.html')
       .then(res => res.text())
       .then(data => {
         footerEl.innerHTML = data;
@@ -103,7 +112,6 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    // Click outside → close all
     document.querySelectorAll('.dropdown').forEach(drop => {
       if (!drop.contains(e.target)) {
         drop.classList.remove('active');
