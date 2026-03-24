@@ -13,9 +13,8 @@
 
 <section class="welcome">
   <div class="container">
-    <h2>Scouts (Ages 10½–14)</h2>
-    <p>Scouts are ready for bigger adventures! Our Scout section focuses on leadership, teamwork, outdoor challenges, and community involvement. Scouts have opportunities to camp, hike, and take on leadership roles while earning advanced badges.</p>
-  </div>
+    <h2 id="page_title"></h2>
+<p id="intro_text"></p></div>
 </section>
 
 <section class="activities">
@@ -30,6 +29,14 @@
 </section>
 
 <div id="footer"></div>
+<script>
+fetch('/content/scouts.json')
+  .then(res => res.json())
+  .then(data => {
+    document.getElementById('page_title').innerText = data.page_title;
+    document.getElementById('intro_text').innerText = data.intro_text;
+ });
+</script>
 <script src="/style/script.js"></script>
 </body>
 </html>

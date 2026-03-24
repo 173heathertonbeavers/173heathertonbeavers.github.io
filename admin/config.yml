@@ -6,13 +6,12 @@ media_folder: "images/uploads"
 public_folder: "/images/uploads"
 
 collections:
-  - name: "pages"
-    label: "Pages"
+  - name: "scouts"
+    label: "Scouts Page"
     files:
-      - label: "Homepage"
-        name: "homepage"
-        file: "content/homepage.json"
+      - file: "content/scouts.json"
+        label: "Scouts Page Content"
+        name: "scouts"
         fields:
-          - { label: "Title", name: "title", widget: "string" }
-          - { label: "Welcome Text", name: "welcome", widget: "text" }
-          - { label: "Image", name: "image", widget: "image" }
+          - { label: "Page Title", name: "page_title", widget: "string" }
+          - { label: "Intro Text", name: "intro_text", widget: "text" }
