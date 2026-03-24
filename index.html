@@ -59,6 +59,20 @@
 <div id="footer"></div>
 
 <script src="/style/script.js" defer></script>
+<script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 
+<script>
+  if (window.netlifyIdentity) {
+    window.netlifyIdentity.on("init", function(user) {
+      // If user clicks invite or reset link
+      if (!user) {
+        const hash = window.location.hash;
+        if (hash && (hash.includes("invite_token") || hash.includes("recovery_token"))) {
+          window.netlifyIdentity.open();
+        }
+      }
+    });
+  }
+</script>
 </body>
 </html>
