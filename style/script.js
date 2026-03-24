@@ -122,3 +122,16 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
 });
+fetch('/173-Heatherton-Scouts/content/homepage.json')
+  .then(res => res.json())
+  .then(data => {
+    document.getElementById('homepage-content').innerHTML = `
+      <section class="welcome">
+        <div class="container">
+          <h2>${data.title}</h2>
+          <p>${data.welcome}</p>
+          <img src="${data.image}" class="group-photo">
+        </div>
+      </section>
+    `;
+  });
