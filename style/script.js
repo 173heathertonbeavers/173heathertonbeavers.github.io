@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const headerEl = document.getElementById('header');
 
   if (headerEl) {
-    fetch(base + 'components/header.html')
+   fetch('/173-Heatherton-Scouts/components/header.html')
       .then(res => res.text())
       .then(data => {
         headerEl.innerHTML = data;
@@ -81,7 +81,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const footerEl = document.getElementById('footer');
 
   if (footerEl) {
-    fetch(base + 'components/footer.html')
+  fetch('/173-Heatherton-Scouts/components/footer.html')
       .then(res => res.text())
       .then(data => {
         footerEl.innerHTML = data;
