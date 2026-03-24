@@ -50,13 +50,17 @@ h2 {  color: #4D2177;  font-size: 2em;  text-align: center; }
 p {  text-align: center; }
 /* ======================================================   CARD LAYOUT (Beavers, Cubs, Scouts) ====================================================== */
 .cards {  display: flex;  flex-wrap: wrap;  gap: 20px;  justify-content: center; }
-                                              /* Individual card */
-.card { flex: 1; min-width: 250px; background: #f9f9f9; padding: 15px; border-radius: 10px; text-align: center; box-shadow: 0 5px 15px rgba(0,0,0,0.1); transition: transform 0.3s, box-shadow 0.3s;}
-                                                /* Hover animation */
-.card:hover {  transform: translateY(-5px);  box-shadow: 0 10px 20px rgba(0,0,0,0.15);}
+/* Layout: 3 per row */
+info-card {  flex: 1 1 calc(33.333% - 20px);  max-width: calc(33.333% - 20px);}
+/* Full width (Volunteering) */
+info-card.full-width {  flex: 1 1 100%;  max-width: 100%;}
+/* Inner card styling ONLY */
+.card {min-width: 250px;  background: #f9f9f9;  padding: 15px;  border-radius: 10px;  text-align: center;  box-shadow: 0 5px 15px rgba(0,0,0,0.1);  transition: transform 0.3s, box-shadow 0.3s;}
+/* Hover */
+.card:hover {transform: translateY(-5px);box-shadow: 0 10px 20px rgba(0,0,0,0.15);}
 .card h3 {  color: #4D2177;}
-                                              /* Card Link */
-.card-link { text-decoration: none; color: inherit; display: block;}
+/* Link wrapper */
+.card-link {  text-decoration: none;  color: inherit;  display: block; }
 /* ======================================================   BUTTONS / VOLUNTEER SECTION ====================================================== */
 .volunteer-section {  text-align: center;  background: #f0f0f0;}
                                                      /* Primary buttons */
