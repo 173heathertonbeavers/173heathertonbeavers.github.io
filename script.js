@@ -41,7 +41,26 @@ document.addEventListener("DOMContentLoaded", () => {
       })
       .then(data => {
         headerEl.innerHTML = data;
+// ===============================
+// 📥 Load Footer
+// ===============================
+const footerEl = document.getElementById('footer');
 
+if (footerEl) {
+  fetch('footer.html')
+    .then(response => {
+      if (!response.ok) {
+        throw new Error("Footer file not found");
+      }
+      return response.text();
+    })
+    .then(data => {
+      footerEl.innerHTML = data;
+    })
+    .catch(err => {
+      console.error("❌ Footer failed to load:", err);
+    });
+}
         // ===============================
         // 🎯 Active Page Highlight
         // ===============================
