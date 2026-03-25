@@ -52,6 +52,36 @@ h2 {  color: #4D2177;  font-size: 2em;  text-align: center; }
                                            /* Paragraphs */
 p {  text-align: center; }
 /* ======================================================
+   HOMEPAGE CARD LAYOUT (FIXED)
+====================================================== */
+
+.home .cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+/* Volunteering row sits below */
+.home .volunteering-row {
+  margin-top: 30px;
+}
+
+.home .volunteering-row info-card {
+  grid-column: 1 / -1;
+}
+
+/* Force cards to behave properly */
+.home info-card {
+  display: block;
+  min-width: 0;
+}
+
+.home .card {
+  width: 100%;
+  min-width: 0;
+  overflow: hidden;
+}
+/* ======================================================
    CARD LAYOUT (FLEXIBLE + HOMEPAGE OVERRIDE)
 ====================================================== */
 
