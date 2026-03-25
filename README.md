@@ -18,3 +18,13 @@ Using Cards with Links:
 Later (custom domain):
 You just change:
 '''<base href="/">'''
+
+
+'''✅ If using <base href="/173-Heatherton-Scouts/">'''
+Then you can simplify to:
+'''<link rel="icon" href="favicon.png">'''
+✅ If NOT using <base>
+
+Use full path:
+
+<link rel="icon" href="/173-Heatherton-Scouts/favicon.png">
