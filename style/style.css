@@ -51,6 +51,7 @@ section {  padding: 40px 20px;  margin-bottom: 40px;  background: #fff;  border-
 h2 {  color: #4D2177;  font-size: 2em;  text-align: center; }
                                            /* Paragraphs */
 p {  text-align: center; }
+
 /* ======================================================
    CARD LAYOUT SYSTEM (EXPLICIT COLUMNS)
 ====================================================== */
