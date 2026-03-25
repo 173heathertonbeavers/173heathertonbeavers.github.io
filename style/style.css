@@ -52,12 +52,23 @@ h2 {  color: #4D2177;  font-size: 2em;  text-align: center; }
                                            /* Paragraphs */
 p {  text-align: center; }
 /* ======================================================
-   CARD LAYOUT (FINAL STABLE VERSION)
+   CARD LAYOUT (FINAL CORRECT VERSION)
 ====================================================== */
+
 .cards {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 20px;
+}
+
+/* If ONLY 2 cards → use 2 columns */
+.cards:has(info-card:nth-child(2):last-child) {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+/* If ONLY 1 card → full width */
+.cards:has(info-card:nth-child(1):last-child) {
+  grid-template-columns: 1fr;
 }
 
 /* Card wrapper */
@@ -65,7 +76,7 @@ info-card {
   display: block;
 }
 
-/* Full width card (e.g. Volunteering) */
+/* Full width card (Volunteering) */
 info-card.full-width {
   grid-column: 1 / -1;
 }
@@ -81,7 +92,7 @@ info-card.full-width {
   transition: transform 0.3s, box-shadow 0.3s;
 }
 
-/* Ensure content doesn't overflow */
+/* Prevent overflow issues */
 .card,
 .card-link {
   min-width: 0;
