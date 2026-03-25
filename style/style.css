@@ -52,12 +52,12 @@ h2 {  color: #4D2177;  font-size: 2em;  text-align: center; }
                                            /* Paragraphs */
 p {  text-align: center; }
 /* ======================================================
-   CARD LAYOUT (CLEAN + STABLE)
+   CARD LAYOUT (FINAL STABLE VERSION)
 ====================================================== */
 
 .cards {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 20px;
 }
 
@@ -66,7 +66,7 @@ info-card {
   display: block;
 }
 
-/* Full width card */
+/* Full width card (e.g. Volunteering) */
 info-card.full-width {
   grid-column: 1 / -1;
 }
@@ -82,7 +82,7 @@ info-card.full-width {
   transition: transform 0.3s, box-shadow 0.3s;
 }
 
-/* Fix overflow properly (only where needed) */
+/* Ensure content doesn't overflow */
 .card,
 .card-link {
   min-width: 0;
@@ -94,16 +94,27 @@ info-card.full-width {
   overflow-wrap: break-word;
 }
 
-/* Hover */
+/* Hover effect */
 .card:hover {
   transform: translateY(-5px);
   box-shadow: 0 10px 20px rgba(0,0,0,0.15);
 }
 
+/* Link wrapper */
 .card-link {
   display: block;
   text-decoration: none;
   color: inherit;
+}
+
+/* ======================================================
+   MOBILE (stack only on small screens)
+====================================================== */
+
+@media (max-width: 600px) {
+  .cards {
+    grid-template-columns: 1fr;
+  }
 }
 /* ======================================================   BUTTONS / VOLUNTEER SECTION ====================================================== */
 .volunteer-section {  text-align: center;  background: #f0f0f0;}
@@ -140,17 +151,6 @@ footer {  background: #111;  color: white;  padding: 40px 20px 20px;}
 @media (max-width: 768px) {
   .footer-grid {  grid-template-columns: 1fr;    text-align: center;  }
   .footer-column p {   text-align: center;  }}
-/* ======================================================
-   RESPONSIVE (CARDS)
-====================================================== */
 
-/* Allow shrinking naturally (no forced 3 columns override!) */
-
-/* Stack ONLY on small screens */
-@media (max-width: 600px) {
-  .cards {
-    grid-template-columns: 1fr;
-  }
-}
 /* ====================================================== IMAGE STYLING====================================================== */
 .group-photo { display: block;  max-width: 50%;  height: auto;  margin: 20px auto 0;  border-radius: 10px;  box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
