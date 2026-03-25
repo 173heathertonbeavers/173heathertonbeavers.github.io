@@ -48,19 +48,19 @@ section {  padding: 40px 20px;  margin-bottom: 40px;  background: #fff;  border-
 h2 {  color: #4D2177;  font-size: 2em;  text-align: center; }
                                            /* Paragraphs */
 p {  text-align: center; }
-/* ======================================================   CARD LAYOUT (Beavers, Cubs, Scouts) ====================================================== */
-.cards {  display: flex;  flex-wrap: wrap;  gap: 20px;  justify-content: center; }
-/* Layout: 3 per row */
-info-card {  display: block; flex: 1 1 calc(33.333% - 20px);  max-width: calc(33.333% - 20px);}
+/* ======================================================   CARD LAYOUT (Beavers, Cubs, Scouts)====================================================== */
+.cards {  display: grid;  grid-template-columns: repeat(3, 1fr);  gap: 20px;}
+/* Make info-card behave nicely inside grid */
+info-card {  display: block;}
 /* Full width (Volunteering) */
-info-card.full-width {  flex: 1 1 100%;  max-width: 100%;}
+info-card.full-width {  grid-column: 1 / -1;}
 /* Inner card styling ONLY */
-.card {  width: 100%;  min-width: 0;background: #f9f9f9;  padding: 15px;  border-radius: 10px;  text-align: center;  box-shadow: 0 5px 15px rgba(0,0,0,0.1);  transition: transform 0.3s, box-shadow 0.3s;}
+.card {  width: 100%;  background: #f9f9f9;padding: 15px;border-radius: 10px;  text-align: center;  box-shadow: 0 5px 15px rgba(0,0,0,0.1);  transition: transform 0.3s, box-shadow 0.3s;}
 /* Hover */
-.card:hover {transform: translateY(-5px);box-shadow: 0 10px 20px rgba(0,0,0,0.15);}
+.card:hover {  transform: translateY(-5px);  box-shadow: 0 10px 20px rgba(0,0,0,0.15);}
 .card h3 {  color: #4D2177;}
 /* Link wrapper */
-.card-link {  text-decoration: none;  color: inherit;  display: block; }
+.card-link {  text-decoration: none;  color: inherit;  display: block;}
 /* ======================================================   BUTTONS / VOLUNTEER SECTION ====================================================== */
 .volunteer-section {  text-align: center;  background: #f0f0f0;}
                                                      /* Primary buttons */
