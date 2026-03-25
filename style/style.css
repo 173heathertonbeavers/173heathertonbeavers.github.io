@@ -52,28 +52,40 @@ h2 {  color: #4D2177;  font-size: 2em;  text-align: center; }
                                            /* Paragraphs */
 p {  text-align: center; }
 /* ======================================================
-   CARD LAYOUT (SPLIT GRID VERSION)
+   CARD LAYOUT (FLEXIBLE + HOMEPAGE OVERRIDE)
 ====================================================== */
 
-/* Main cards (3 across max) */
+/* Default: adaptive layout (used on most pages) */
 .cards {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 20px;
+  width: 100%;
 }
 
-/* Volunteering row */
+/* Homepage override: ALWAYS 3 columns */
+.cards-3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+/* Volunteering row (separate grid) */
 .volunteering-row {
-  margin-top: 20px;
+  margin-top: 30px;
 }
 
 .volunteering-row info-card {
   grid-column: 1 / -1;
 }
 
+/* ======================================================
+   CARD STYLING
+====================================================== */
+
 /* Card wrapper */
 info-card {
   display: block;
+  width: 100%;
+  min-width: 0;
 }
 
 /* Inner card */
@@ -85,11 +97,17 @@ info-card {
   text-align: center;
   box-shadow: 0 5px 15px rgba(0,0,0,0.1);
   transition: transform 0.3s, box-shadow 0.3s;
+
+  /* Prevent layout breaking */
+  min-width: 0;
+  overflow: hidden;
 }
 
-/* Prevent overflow */
-.card,
+/* Link wrapper */
 .card-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
   min-width: 0;
 }
 
@@ -97,24 +115,22 @@ info-card {
 .card h3,
 .card p {
   overflow-wrap: break-word;
+  word-break: break-word;
 }
 
-/* Hover */
+/* Hover effect */
 .card:hover {
   transform: translateY(-5px);
   box-shadow: 0 10px 20px rgba(0,0,0,0.15);
 }
 
-/* Link */
-.card-link {
-  display: block;
-  text-decoration: none;
-  color: inherit;
-}
+/* ======================================================
+   MOBILE (stack only on small screens)
+====================================================== */
 
-/* Mobile */
 @media (max-width: 600px) {
-  .cards {
+  .cards,
+  .cards-3 {
     grid-template-columns: 1fr;
   }
 }
