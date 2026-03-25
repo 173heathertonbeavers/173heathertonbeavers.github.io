@@ -57,7 +57,7 @@ p {  text-align: center; }
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 20px;
-}
+width: 100%;}
 
 /* Info card wrapper */
 info-card {
@@ -69,7 +69,17 @@ info-card {
 info-card.full-width {
   grid-column: 1 / -1;
 }
-
+.card h3,
+.card p {
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+info-card,
+.card {
+ min-width: 0;
+  width: 100%;
+  box-sizing: border-box;
+}
 /* Inner card */
 .card {
   width: 100%;
