@@ -54,10 +54,10 @@ p {  text-align: center; }
 /* ======================================================
    CARD LAYOUT (FINAL STABLE VERSION)
 ====================================================== */
-
 .cards {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 350px));
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(280px, 1fr);
   justify-content: center;
   gap: 20px;
 }
