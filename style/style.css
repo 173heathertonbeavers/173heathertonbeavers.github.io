@@ -1,3 +1,6 @@
+* {
+  box-sizing: border-box;
+}
 /* ======================================================   GLOBAL / BASE STYLES  ====================================================== */
 body {  font-family: Arial, sans-serif;  line-height: 1.6;  margin: 0;  color: #222;  background: #f5f5f5; }
                      /* Remove underline from all links by default */
@@ -52,17 +55,29 @@ p {  text-align: center; }
 /* ======================================================
    CARD LAYOUT (FINAL FIX)
 ====================================================== */
-
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
 .cards {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 20px;
 width: 100%;}
 
-/* Info card wrapper */
+.cards,
+.cards * {
+  min-width: 0;
+}
 info-card {
   display: block;
-  min-width: 0;
+  width: 100%;
+}
+
+.card {
+  width: 100%;
+  overflow: hidden;
 }
 
 /* Full width (Volunteering) */
@@ -73,6 +88,9 @@ info-card.full-width {
 .card p {
   overflow-wrap: break-word;
   word-break: break-word;
+}
+.card {
+  background: red !important;
 }
 info-card,
 .card {
