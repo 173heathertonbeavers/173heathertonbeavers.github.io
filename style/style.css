@@ -55,7 +55,7 @@ info-card {  display: block; flex: 1 1 calc(33.333% - 20px);  max-width: calc(33
 /* Full width (Volunteering) */
 info-card.full-width {  flex: 1 1 100%;  max-width: 100%;}
 /* Inner card styling ONLY */
-.card {min-width: 250px;  background: #f9f9f9;  padding: 15px;  border-radius: 10px;  text-align: center;  box-shadow: 0 5px 15px rgba(0,0,0,0.1);  transition: transform 0.3s, box-shadow 0.3s;}
+.card {  width: 100%;  min-width: 0;background: #f9f9f9;  padding: 15px;  border-radius: 10px;  text-align: center;  box-shadow: 0 5px 15px rgba(0,0,0,0.1);  transition: transform 0.3s, box-shadow 0.3s;}
 /* Hover */
 .card:hover {transform: translateY(-5px);box-shadow: 0 10px 20px rgba(0,0,0,0.15);}
 .card h3 {  color: #4D2177;}
