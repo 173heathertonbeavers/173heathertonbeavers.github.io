@@ -28,14 +28,27 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
   // ===============================
-  // 🧠 Get correct base path (WORKING VERSION)
+  // 🧠 Get correct base path (FIXED)
   // ===============================
-  const pathParts = window.location.pathname.split('/');
-  const repoName = pathParts[1]; // e.g. "173-Heatherton-Scouts"
+  function getBasePath() {
+    const path = window.location.pathname;
 
-  const base = window.location.hostname.includes('github.io')
-    ? `/${repoName}/`
-    : './';
+    // GitHub Pages (repo in URL)
+    if (window.location.hostname.includes('github.io')) {
+      const parts = path.split('/');
+      return `/${parts[1]}/`;
+    }
+
+    // Local or normal hosting → calculate depth
+    const depth = path.split('/').length - 2;
+
+    if (depth <= 1) return './';
+
+    return '../'.repeat(depth - 1);
+  }
+
+  const base = getBasePath();
+  console.log("📂 Base path:", base);
 
 
   // ===============================
@@ -44,19 +57,21 @@ document.addEventListener("DOMContentLoaded", () => {
   const headerEl = document.getElementById('header');
 
   if (headerEl) {
-   fetch('/173-Heatherton-Scouts/components/header.html')
+    fetch(base + 'components/header.html')
       .then(res => res.text())
       .then(data => {
         headerEl.innerHTML = data;
 
-        // Active link highlight
+        // ===============================
+        // 🔗 Active link highlight
+        // ===============================
         const links = document.querySelectorAll('nav a');
         const currentPath = window.location.pathname;
 
         links.forEach(link => {
           const href = link.getAttribute("href");
 
-          if (currentPath.endsWith(href)) {
+          if (href && currentPath.endsWith(href)) {
             link.classList.add("active");
 
             const dropdown = link.closest('.dropdown');
@@ -81,7 +96,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const footerEl = document.getElementById('footer');
 
   if (footerEl) {
-  fetch('/173-Heatherton-Scouts/components/footer.html')
+    fetch(base + 'components/footer.html')
       .then(res => res.text())
       .then(data => {
         footerEl.innerHTML = data;
