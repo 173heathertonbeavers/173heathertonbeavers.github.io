@@ -52,33 +52,28 @@ h2 {  color: #4D2177;  font-size: 2em;  text-align: center; }
                                            /* Paragraphs */
 p {  text-align: center; }
 /* ======================================================
-   CARD LAYOUT (FINAL CORRECT VERSION)
+   CARD LAYOUT (SPLIT GRID VERSION)
 ====================================================== */
 
+/* Main cards (3 across max) */
 .cards {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 20px;
 }
 
-/* If ONLY 2 cards → use 2 columns */
-.cards:has(info-card:nth-child(2):last-child) {
-  grid-template-columns: repeat(2, 1fr);
+/* Volunteering row */
+.volunteering-row {
+  margin-top: 20px;
 }
 
-/* If ONLY 1 card → full width */
-.cards:has(info-card:nth-child(1):last-child) {
-  grid-template-columns: 1fr;
+.volunteering-row info-card {
+  grid-column: 1 / -1;
 }
 
 /* Card wrapper */
 info-card {
   display: block;
-}
-
-/* Full width card (Volunteering) */
-info-card.full-width {
-  grid-column: 1 / -1;
 }
 
 /* Inner card */
@@ -92,7 +87,7 @@ info-card.full-width {
   transition: transform 0.3s, box-shadow 0.3s;
 }
 
-/* Prevent overflow issues */
+/* Prevent overflow */
 .card,
 .card-link {
   min-width: 0;
@@ -104,23 +99,20 @@ info-card.full-width {
   overflow-wrap: break-word;
 }
 
-/* Hover effect */
+/* Hover */
 .card:hover {
   transform: translateY(-5px);
   box-shadow: 0 10px 20px rgba(0,0,0,0.15);
 }
 
-/* Link wrapper */
+/* Link */
 .card-link {
   display: block;
   text-decoration: none;
   color: inherit;
 }
 
-/* ======================================================
-   MOBILE (stack only on small screens)
-====================================================== */
-
+/* Mobile */
 @media (max-width: 600px) {
   .cards {
     grid-template-columns: 1fr;
