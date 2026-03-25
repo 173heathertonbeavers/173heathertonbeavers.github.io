@@ -23,6 +23,28 @@ nav a {  color: white;  padding: 8px 12px;  border-radius: 4px;  font-weight: bo
 nav a:hover { background: #7C4D9E;}
                                  /* Active page highlight */
 nav a.active {  background: #7C4D9E; }
+/* ======================================================  table ====================================================== */
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 12px;
+  text-align: center;
+}
+
+th {
+  background: #4D2177;
+  color: white;
+}
+
+tr:nth-child(even) {
+  background: #f9f9f9;
+}
 /* ======================================================  DROPDOWN MENU ====================================================== */
                                        /* Parent container */
 .dropdown {  position: relative; }
