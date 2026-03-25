@@ -52,73 +52,46 @@ h2 {  color: #4D2177;  font-size: 2em;  text-align: center; }
                                            /* Paragraphs */
 p {  text-align: center; }
 /* ======================================================
-   HOMEPAGE CARD LAYOUT (FIXED)
+   CARD LAYOUT SYSTEM (EXPLICIT COLUMNS)
 ====================================================== */
 
-.home .cards {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-}
-
-/* Volunteering row sits below */
-.home .volunteering-row {
-  margin-top: 30px;
-}
-
-.home .volunteering-row info-card {
-  grid-column: 1 / -1;
-}
-
-/* Force cards to behave properly */
-.home info-card {
-  display: block;
-  min-width: 0;
-}
-
-.home .card {
-  width: 100%;
-  min-width: 0;
-  overflow: hidden;
-}
-/* ======================================================
-   CARD LAYOUT (FLEXIBLE + HOMEPAGE OVERRIDE)
-====================================================== */
-
-/* Default: adaptive layout (used on most pages) */
+/* Base cards (shared styles only) */
 .cards {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 20px;
   width: 100%;
 }
 
-/* Homepage override: ALWAYS 3 columns */
+/* 3-column layout */
 .cards-3 {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
-/* Volunteering row (separate grid) */
-.volunteering-row {
-  margin-top: 30px;
+/* 2-column layout */
+.cards-2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
-.volunteering-row info-card {
-  grid-column: 1 / -1;
+/* 1-column layout */
+.cards-1 {
+  grid-template-columns: 1fr;
+}
+
+/* Volunteering / full-width row spacing */
+.volunteering-row {
+  margin-top: 30px;
 }
 
 /* ======================================================
    CARD STYLING
 ====================================================== */
 
-/* Card wrapper */
 info-card {
   display: block;
   width: 100%;
   min-width: 0;
 }
 
-/* Inner card */
 .card {
   width: 100%;
   padding: 15px;
@@ -133,12 +106,10 @@ info-card {
   overflow: hidden;
 }
 
-/* Link wrapper */
 .card-link {
   display: block;
   text-decoration: none;
   color: inherit;
-  min-width: 0;
 }
 
 /* Text wrapping */
@@ -148,19 +119,20 @@ info-card {
   word-break: break-word;
 }
 
-/* Hover effect */
+/* Hover */
 .card:hover {
   transform: translateY(-5px);
   box-shadow: 0 10px 20px rgba(0,0,0,0.15);
 }
 
 /* ======================================================
-   MOBILE (stack only on small screens)
+   MOBILE
 ====================================================== */
 
 @media (max-width: 600px) {
-  .cards,
-  .cards-3 {
+  .cards-3,
+  .cards-2,
+  .cards-1 {
     grid-template-columns: 1fr;
   }
 }
