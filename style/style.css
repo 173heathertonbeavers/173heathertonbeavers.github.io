@@ -61,6 +61,10 @@ info-card.full-width {  grid-column: 1 / -1;}
 .card h3 {  color: #4D2177;}
 /* Link wrapper */
 .card-link {  text-decoration: none;  color: inherit;  display: block;}
+/* Prevent overflow inside grid */
+.cards {  min-width: 0;}
+info-card {  min-width: 0;}
+.card {  min-width: 0;overflow: hidden; }
 /* ======================================================   BUTTONS / VOLUNTEER SECTION ====================================================== */
 .volunteer-section {  text-align: center;  background: #f0f0f0;}
                                                      /* Primary buttons */
