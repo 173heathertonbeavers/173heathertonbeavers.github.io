@@ -49,7 +49,7 @@ h2 {  color: #4D2177;  font-size: 2em;  text-align: center; }
                                            /* Paragraphs */
 p {  text-align: center; }
 /* ======================================================   CARD LAYOUT (Beavers, Cubs, Scouts)====================================================== */
-.cards {  display: grid;  grid-template-columns: repeat(3, 1fr);  gap: 20px;}
+.cards { display: grid;  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));  gap: 20px; }
 /* Make info-card behave nicely inside grid */
 info-card {  display: block;}
 /* Full width (Volunteering) */
