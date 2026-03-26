@@ -17,7 +17,7 @@
     <form action="https://formspree.io/f/mpqyggvp" method="POST">
       <label for="name">Full Name</label>
       <input type="text" id="name" name="name" placeholder="Your full name" required>
-
+<input type="hidden" name="_cc" id="recipient">
       <label for="email">Email Address</label>
       <input type="email" id="email" name="_replyto" placeholder="you@example.com" required>
 
@@ -40,5 +40,29 @@
 
 <div id="footer"></div>
 <script src="/173-Heatherton-Scouts/style/script.js" defer></script>
+<script>
+const form = document.querySelector("form");
+const dropdown = document.getElementById("interest");
+const recipientField = document.getElementById("recipient");
+
+form.addEventListener("submit", function () {
+  switch (dropdown.value) {
+    case "beavers":
+      recipientField.value = "173HeathertonBeavers@gmail.com";
+      break;
+    case "cubs":
+      recipientField.value = "173HeathertonCubs@gmail.com";
+      break;
+    case "scouts":
+      recipientField.value = "173HeathertonScouts@gmail.com";
+      break;
+    case "volunteer":
+      recipientField.value = "173heathertonvolunteering@gmail.com";
+      break;
+    default:
+      recipientField.value = "173HeathertonBeavers@gmail.com";
+  }
+});
+</script>
 </body>
 </html>
