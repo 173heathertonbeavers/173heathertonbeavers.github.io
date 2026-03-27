@@ -137,3 +137,26 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
 });
+
+const fullscreen = document.getElementById("fullscreen");
+const fullImg = document.getElementById("fullImg");
+const closeBtn = document.getElementById("closeBtn");
+
+// Click any image
+document.querySelectorAll(".clickable").forEach(img => {
+  img.addEventListener("click", () => {
+    fullscreen.style.display = "flex";
+    fullImg.src = img.src;
+  });
+});
+
+// Close with X
+closeBtn.addEventListener("click", (e) => {
+  e.stopPropagation();
+  fullscreen.style.display = "none";
+});
+
+// Close when clicking background
+fullscreen.addEventListener("click", () => {
+  fullscreen.style.display = "none";
+});
