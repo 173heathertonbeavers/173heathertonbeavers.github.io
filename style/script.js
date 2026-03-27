@@ -1,3 +1,4 @@
+
 document.addEventListener("DOMContentLoaded", () => {
 
   console.log("✅ JS LOADED");
@@ -136,4 +137,33 @@ document.addEventListener("DOMContentLoaded", () => {
 
   });
 
+// ===============================
+// 🖼️ FULLSCREEN IMAGES
+// ===============================
+const fullscreen = document.getElementById("fullscreen");
+const fullImg = document.getElementById("fullImg");
+const closeBtn = document.getElementById("closeBtn");
+
+// Safety check
+if (fullscreen && fullImg && closeBtn) {
+
+  document.querySelectorAll(".clickable").forEach(img => {
+    img.addEventListener("click", () => {
+      fullscreen.style.display = "flex";
+      fullImg.src = img.src;
+    });
+  });
+
+  closeBtn.addEventListener("click", (e) => {
+    e.stopPropagation();
+    fullscreen.style.display = "none";
+  });
+
+  fullscreen.addEventListener("click", () => {
+    fullscreen.style.display = "none";
+  });
+
+} else {
+  console.error("❌ Fullscreen elements not found");
+}
 });
