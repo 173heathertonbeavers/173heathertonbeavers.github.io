@@ -1,169 +1,67 @@
-
 document.addEventListener("DOMContentLoaded", () => {
-
   console.log("✅ JS LOADED");
+  // ===============================// 🧩 Web Component: Info Card // ===============================
+class InfoCard extends HTMLElement {
+  connectedCallback() {
+    const link = this.getAttribute('link') || '#';
 
-  // ===============================
-  // 🧩 Web Component: Info Card
-  // ===============================
-  class InfoCard extends HTMLElement {
-    connectedCallback() {
-      const title = this.getAttribute('title') || '';
-      const content = this.getAttribute('content') || '';
-      const link = this.getAttribute('link') || '#';
+    const content = this.innerHTML;
 
-      this.innerHTML = `
-        <a href="${link}" class="card-link">
-          <div class="card">
-            <h3>${title}</h3>
-            <p>${content}</p>
-          </div>
-        </a>
-      `;
-    }
+    this.innerHTML = `
+      <a href="${link}" class="card-link">
+        <div class="card" >
+          ${content}
+        </div>
+      </a>
+    `;
   }
-
-  if (!customElements.get('info-card')) {
-    customElements.define('info-card', InfoCard);
-  }
-
-
-  // ===============================
-  // 🧠 Get correct base path (FIXED)
-  // ===============================
-  function getBasePath() {
-    const path = window.location.pathname;
-
+}if (!customElements.get('info-card')) { customElements.define('info-card', InfoCard); }
+  // ===============================// 🧠 Get correct base path (FIXED)// ===============================
+  function getBasePath() { const path = window.location.pathname;
     // GitHub Pages (repo in URL)
-    if (window.location.hostname.includes('github.io')) {
-      const parts = path.split('/');
-      return `/${parts[1]}/`;
-    }
-
+    if (window.location.hostname.includes('github.io')) {  const parts = path.split('/');   return `/${parts[1]}/`; }
     // Local or normal hosting → calculate depth
     const depth = path.split('/').length - 2;
-
     if (depth <= 1) return './';
-
-    return '../'.repeat(depth - 1);
-  }
-
+    return '../'.repeat(depth - 1);}
   const base = getBasePath();
   console.log("📂 Base path:", base);
-
-
-  // ===============================
-  // 📥 Load Header
-  // ===============================
+  // ===============================// 📥 Load Header// ===============================
   const headerEl = document.getElementById('header');
-
   if (headerEl) {
     fetch(base + 'components/header.html')
       .then(res => res.text())
       .then(data => {
         headerEl.innerHTML = data;
-
-        // ===============================
-        // 🔗 Active link highlight
-        // ===============================
+ // =============================== // 🔗 Active link highlight // ===============================
         const links = document.querySelectorAll('nav a');
         const currentPath = window.location.pathname;
-
         links.forEach(link => {
           const href = link.getAttribute("href");
-
           if (href && currentPath.endsWith(href)) {
-            link.classList.add("active");
-
-            const dropdown = link.closest('.dropdown');
-            if (dropdown) {
-              dropdown.classList.add('active');
-
-              const parentLink = dropdown.querySelector('.dropdown-toggle');
-              if (parentLink) {
-                parentLink.classList.add('active');
-              }
-            }
-          }
-        });
-      })
-      .catch(err => console.error("❌ Header failed:", err));
-  }
-
-
-  // ===============================
-  // 📥 Load Footer
-  // ===============================
+            link.classList.add("active"); const dropdown = link.closest('.dropdown');
+            if (dropdown) { dropdown.classList.add('active'); const parentLink = dropdown.querySelector('.dropdown-toggle');
+              if (parentLink) {parentLink.classList.add('active'); } }  }}); })
+      .catch(err => console.error("❌ Header failed:", err));}
+  // ===============================// 📥 Load Footer// ===============================
   const footerEl = document.getElementById('footer');
-
   if (footerEl) {
     fetch(base + 'components/footer.html')
       .then(res => res.text())
-      .then(data => {
-        footerEl.innerHTML = data;
-      })
-      .catch(err => console.error("❌ Footer failed:", err));
-  }
-
-
-  // ===============================
-  // 🖱️ Dropdown Click Handling
-  // ===============================
-  document.addEventListener('click', function(e) {
-
-    const toggle = e.target.closest('.dropdown-toggle');
-
-    if (toggle) {
-      const parent = toggle.parentElement;
-
-      if (!parent.classList.contains('active')) {
-        e.preventDefault();
-
-        document.querySelectorAll('.dropdown').forEach(d => {
-          d.classList.remove('active');
-        });
-
-        parent.classList.add('active');
-      }
-
-      return;
-    }
-
-    document.querySelectorAll('.dropdown').forEach(drop => {
-      if (!drop.contains(e.target)) {
-        drop.classList.remove('active');
-      }
-    });
-
-  });
-
-// ===============================
-// 🖼️ FULLSCREEN IMAGES
-// ===============================
+      .then(data => {  footerEl.innerHTML = data; })
+      .catch(err => console.error("❌ Footer failed:", err));  }
+  // ===============================// 🖱️ Dropdown Click Handling// ===============================
+  document.addEventListener('click', function(e) { const toggle = e.target.closest('.dropdown-toggle');
+ if (toggle) { const parent = toggle.parentElement;
+      if (!parent.classList.contains('active')) { e.preventDefault(); document.querySelectorAll('.dropdown').forEach(d => { d.classList.remove('active'); });parent.classList.add('active');} return;}
+    document.querySelectorAll('.dropdown').forEach(drop => {  if (!drop.contains(e.target)) {    drop.classList.remove('active');    }  }); });
+// ===============================// 🖼️ FULLSCREEN IMAGES// ===============================
 const fullscreen = document.getElementById("fullscreen");
 const fullImg = document.getElementById("fullImg");
 const closeBtn = document.getElementById("closeBtn");
-
 // Safety check
 if (fullscreen && fullImg && closeBtn) {
-
-  document.querySelectorAll(".clickable").forEach(img => {
-    img.addEventListener("click", () => {
-      fullscreen.style.display = "flex";
-      fullImg.src = img.src;
-    });
-  });
-
-  closeBtn.addEventListener("click", (e) => {
-    e.stopPropagation();
-    fullscreen.style.display = "none";
-  });
-
-  fullscreen.addEventListener("click", () => {
-    fullscreen.style.display = "none";
-  });
-
-} else {
-  console.error("❌ Fullscreen elements not found");
-}
-});
+  document.querySelectorAll(".clickable").forEach(img => { img.addEventListener("click", (e) => {   e.stopPropagation(); fullscreen.style.display = "flex";   fullImg.src = img.src;  }); });
+  closeBtn.addEventListener("click", (e) => { e.stopPropagation(); fullscreen.style.display = "none";});
+  fullscreen.addEventListener("click", () => {fullscreen.style.display = "none"; });
+} else { console.error("❌ Fullscreen elements not found");}});
