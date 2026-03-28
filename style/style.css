@@ -65,8 +65,8 @@ tr:nth-child(even) { background: #f9f9f9;}
 section {  padding: 40px 20px;  margin-bottom: 40px;  background: #fff;  border-radius: 10px; }
 /* ======================================================typography====================================================== */
 h1, h2 { font-weight: 900; text-align: center;}
-h3 { font-weight: 800;}
-p { font-weight: 400;}
+h3 { font-weight: 800; text-align: center;}
+p { font-weight: 400; text-align: center;}
 .text-light { font-weight: 300; }
 .text-semibold { font-weight: 600; }
 .text-bold { font-weight: 700; }
