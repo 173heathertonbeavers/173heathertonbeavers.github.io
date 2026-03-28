@@ -130,8 +130,8 @@ footer {  background: #111;  color: white;  padding: 40px 20px 20px;}
 .footer-bottom { margin-top: 30px;text-align: center;  border-top: 1px solid #333;padding-top: 15px;  font-size: 0.9em;}  /* Bottom bar */
 @media (max-width: 768px) {.footer-grid {  grid-template-columns: 1fr;    text-align: center;  } .footer-column p {   text-align: center;  }} /* Mobile responsive */
 /* ====================================================== IMAGE STYLING====================================================== */
-.homegroupphoto { display: block;  max-width: 50%;  height: auto;  margin: 20px auto 0;  border-radius: 10px;  box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
-@media (max-width: 768px) {.homegroupphoto { display: block;  max-width: 100%;  height: auto;  margin: 5px auto 0;} }
+.homegroupphoto { display: block;  width: 50%;  height: auto;  margin: 20px auto 0;  border-radius: 10px;  box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+@media (max-width: 768px) {.homegroupphoto { width: 100%;  height: auto;  margin: 5px auto 0;} }
 .largephoto { display: block;  max-width: 100%;  height: auto;  margin: 20px auto 0;  border-radius: 10px;  box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
 .smallphoto { display: block;  max-width: 50%;  height: auto;  margin: 20px auto 0;  border-radius: 10px;  box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
 .card-logo { width: auto; height:35px; margin: 10px auto; display: block}
