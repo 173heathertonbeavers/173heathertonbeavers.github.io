@@ -1,3 +1,4 @@
+
 document.addEventListener("DOMContentLoaded", () => {
   console.log("✅ JS LOADED");
   // ===============================// 🧩 Web Component: Info Card // ===============================
@@ -65,3 +66,56 @@ if (fullscreen && fullImg && closeBtn) {
   closeBtn.addEventListener("click", (e) => { e.stopPropagation(); fullscreen.style.display = "none";});
   fullscreen.addEventListener("click", () => {fullscreen.style.display = "none"; });
 } else { console.error("❌ Fullscreen elements not found");}});
+
+// Sort newest first
+posts.sort((a, b) => new Date(b.date) - new Date(a.date));
+
+// Get elements
+const featured = document.getElementById("featured");
+const older = document.getElementById("older");
+const modal = document.getElementById("postModal");
+const modalBody = document.getElementById("modalBody");
+
+// ================= FEATURED =================
+const latest = posts[0];
+featured.innerHTML = `
+  <h2>${latest.title}</h2>
+  <p class="date">${latest.date}</p>
+  ${latest.content}
+`;
+
+// ================= OLDER POSTS (INLINE EXPAND) =================
+posts.slice(1).forEach(post => {
+  const li = document.createElement("li");
+
+  li.innerHTML = `
+    <div class="post-title">
+      <strong>${post.title}</strong> (${post.date})
+    </div>
+    <div class="post-content" style="display:none;">
+      ${post.content}
+    </div>
+  `;
+
+  const title = li.querySelector(".post-title");
+  const content = li.querySelector(".post-content");
+
+  title.style.cursor = "pointer";
+
+  title.onclick = () => {
+    const isOpen = content.style.display === "block";
+
+    // Close all others (optional, but nice)
+    document.querySelectorAll(".post-content").forEach(el => {
+      el.style.display = "none";
+    });
+
+    // Toggle current
+    content.style.display = isOpen ? "none" : "block";
+  };
+
+  older.appendChild(li);
+});
+title.innerHTML = `▶ ${post.title} (${post.date})`;
+;
+

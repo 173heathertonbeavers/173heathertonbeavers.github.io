@@ -122,7 +122,7 @@ footer {  background: #111;  color: white;  padding: 40px 20px 20px;}
 .homegroupphoto { display: block;  max-width: 50%;  height: auto;  margin: 20px auto 0;  border-radius: 10px;  box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
 .largephoto { display: block;  max-width: 100%;  height: auto;  margin: 20px auto 0;  border-radius: 10px;  box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
 .smallphoto { display: block;  max-width: 50%;  height: auto;  margin: 20px auto 0;  border-radius: 10px;  box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
-.card-logo { width: 120px; height: auto; margin: 10px auto; display: block;}
+.card-logo { width: auto; height:35px; margin: 10px auto; display: block}
 /* ================= IMAGE CONTAINER ================= */
 .image-container {position: relative;display: inline-block;}
 .image-container img {  display: block;}
@@ -133,3 +133,30 @@ footer {  background: #111;  color: white;  padding: 40px 20px 20px;}
 #fullscreen img {  max-width: 90%;  max-height: 90%;}
 #closeBtn {  position: absolute;  top: 20px;  right: 30px;  font-size: 40px;  color: white; cursor: pointer;} /* Close button */
 .clickable {  cursor: pointer;} /* Make images clickable */
+/*=========== News Page ================ */ 
+    .featured {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      margin-bottom: 30px;}
+    .featured h2 {  margin-top: 0;}
+    .date {color: gray; font-size: 0.9em;}
+    .older-posts { background: white; padding: 15px; border-radius: 10px;}
+    .older-posts h3 {   margin-top: 0;}
+    .older-posts ul {    list-style: none;    padding: 0;   }
+    .older-posts li {      padding: 8px 0;      border-bottom: 1px solid #ddd;    }
+
+    .older-posts a {text-decoration: none;  color: #333;}
+    .older-posts a:hover { text-decoration: underline;}
+
+/* Expandable post content */
+.post-title {
+  padding: 8px 0;
+}
+
+.post-content {
+  margin-top: 8px;
+  padding: 10px;
+  background: #f9f9f9;
+  border-radius: 6px;
+}
