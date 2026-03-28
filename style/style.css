@@ -26,6 +26,17 @@ header {  background: #4D2177;   color: white;  padding: 10px 20px; }
 .header-inner {  display: flex;  flex-wrap: wrap;  align-items: center;  justify-content: space-between;}  /* Layout: logo left, nav right */
 .group-name-link { color: #fff !important; text-decoration: none !important; font-weight: bold;  font-size: 1.6em; } /* Group name (logo text) */
 .group-name-link:hover {  color: #fff !important;} /* Keep it white on hover */
+/* ================= HEADER IMAGE ================= */
+header img {
+  max-height: 55px;  /* controls how tall the header feels */
+  width: auto;       /* keeps image proportions */
+  display: block;
+}
+@media (max-width: 768px) {
+  header img {
+    max-height: 40px;
+  }
+}
 /* ----------------------  Navigation links ---------------------- */
 nav {  display: flex;  gap: 15px;  flex-wrap: wrap;}   
 nav a {  color: white;  padding: 8px 12px;  border-radius: 4px;  font-weight: bold; transition: background 0.3s; } /* Main nav links */
