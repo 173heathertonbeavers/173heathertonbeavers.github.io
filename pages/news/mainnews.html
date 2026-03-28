@@ -1,0 +1,59 @@
+          <!DOCTYPE html> 
+        <html lang="en"> 
+<head> 
+ <link rel="icon" href="/173-Heatherton-Scouts/favicon.png"> 
+<meta charset="UTF-8"> 
+<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+<title> News</title> 
+<link rel="stylesheet" href="../../style/style.css"> 
+</head> 
+<body> 
+<script> 
+const posts = [  
+{ title: "Welcome to our new website!",
+ date: "2026-03-28",
+  content: `
+    <p> We hope you find this website useful. </p>
+  `},
+{
+  title: "Older News",
+  date: "2026-03-27",
+  content: `
+    <p> You can find older news here </p>
+    <img src="../../images/cubbp.png" class="largephoto clickable">
+  `},
+{ title: "Older News 2",
+  date: "2026-03-25",
+  content: `
+    <p> You can find even older news here! </p>
+    <img src="../../images/cubbp.png" class="largephoto clickable">
+  `} 
+]; 
+</script>
+    <div id="header"></div> 
+<section class="welcome"> 
+ <div class="container"> 
+  <h2> Welcome to our news page </h2> 
+  <p> Keep up to date with our adventures! </p>  
+   </div> 
+</section> 
+
+
+<div class="container">
+
+<!-- 📰 Latest (AUTO) -->
+<div id="featured" class="featured"></div>
+
+<!-- 📚 Older Posts (AUTO) -->
+<div class="older-posts">
+  <h3>Previous Posts</h3>
+  <ul id="older"></ul>
+</div> 
+
+</div>
+
+
+<div id="footer"></div> 
+<script src="../../style/script.js"></script>
+</body>
+</html>
