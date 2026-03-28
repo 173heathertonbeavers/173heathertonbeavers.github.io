@@ -148,13 +148,13 @@ footer {  background: #111;  color: white;  padding: 40px 20px 20px;}
 .clickable {  cursor: pointer;} /* Make images clickable */
 /*=========== News Page ================ */ 
     .featured {
-      background: white;
+      background: #f9f9f9;
       padding: 20px;
       border-radius: 10px;
       margin-bottom: 30px;}
     .featured h2 {  margin-top: 0;}
-    .date {color: gray; font-size: 0.9em;}
-    .older-posts { background: white; padding: 15px; border-radius: 10px;}
+    .date {color: black; font-size: 0.9em;}
+    .older-posts { background: #f9f9f9; padding: 15px; border-radius: 10px;}
     .older-posts h3 {   margin-top: 0;}
     .older-posts ul {    list-style: none;    padding: 0;   }
     .older-posts li {      padding: 8px 0;      border-bottom: 1px solid #ddd;    }
