@@ -24,31 +24,12 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // ===============================
-  // 🧠 Base Path
-  // ===============================
-  function getBasePath() {
-    const path = window.location.pathname;
-
-    if (window.location.hostname.includes('github.io')) {
-      const parts = path.split('/');
-      return `/${parts[1]}/`;
-    }
-
-    const depth = path.split('/').length - 2;
-    if (depth <= 1) return './';
-
-    return '../'.repeat(depth - 1);
-  }
-
-  const base = getBasePath();
-
-  // ===============================
   // 📥 Load Header
   // ===============================
   const headerEl = document.getElementById('header');
 
   if (headerEl) {
-    fetch(base + 'components/header.html')
+    fetch("/components/header.html")
       .then(res => res.text())
       .then(data => {
         headerEl.innerHTML = data;
@@ -82,7 +63,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const footerEl = document.getElementById('footer');
 
   if (footerEl) {
-    fetch(base + 'components/footer.html')
+    fetch("/components/footer.html")
       .then(res => res.text())
       .then(data => {
         footerEl.innerHTML = data;
@@ -91,7 +72,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // ===============================
-  // 🖱️ Dropdown Handling (FIXED)
+  // 🖱️ Dropdown Handling
   // ===============================
   document.addEventListener("click", function (e) {
     const isMobile = window.matchMedia("(max-width: 768px)").matches;
@@ -136,74 +117,76 @@ document.addEventListener("DOMContentLoaded", () => {
   const fullImg = document.getElementById("fullImg");
   const closeBtn = document.getElementById("closeBtn");
 
-if (fullscreen && fullImg && closeBtn) {
-  document.querySelectorAll(".clickable").forEach(img => {
-    img.addEventListener("click", (e) => {
-      e.stopPropagation();
-      fullscreen.style.display = "flex";
-      fullImg.src = img.src;
+  if (fullscreen && fullImg && closeBtn) {
+    document.querySelectorAll(".clickable").forEach(img => {
+      img.addEventListener("click", (e) => {
+        e.stopPropagation();
+        fullscreen.style.display = "flex";
+        fullImg.src = img.src;
+      });
     });
-  });
 
-  closeBtn.addEventListener("click", (e) => {
-    e.stopPropagation();
-    fullscreen.style.display = "none";
-  });
+    closeBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      fullscreen.style.display = "none";
+    });
 
-  fullscreen.addEventListener("click", () => {
-    fullscreen.style.display = "none";
-  });
+    fullscreen.addEventListener("click", () => {
+      fullscreen.style.display = "none";
+    });
 
-} else {
-  console.error("❌ Fullscreen elements not found");
-}
+  } else {
+    console.error("❌ Fullscreen elements not found");
+  }
 
-// Sort newest first
-if (typeof posts !== "undefined") {
+  // ===============================
+  // 📰 News System
+  // ===============================
+  if (typeof posts !== "undefined") {
 
-  posts.sort((a, b) => new Date(b.date) - new Date(a.date));
+    posts.sort((a, b) => new Date(b.date) - new Date(a.date));
 
-  const featured = document.getElementById("featured");
-  const older = document.getElementById("older");
+    const featured = document.getElementById("featured");
+    const older = document.getElementById("older");
 
-  if (featured && older) {
-    const latest = posts[0];
+    if (featured && older) {
+      const latest = posts[0];
 
-    featured.innerHTML = `
-      <h2>${latest.title}</h2>
-      <p class="date">${latest.date}</p>
-      ${latest.content}
-    `;
-
-    posts.slice(1).forEach(post => {
-      const li = document.createElement("li");
-
-      li.innerHTML = `
-        <div class="post-title">
-          <strong>${post.title}</strong> (${post.date})
-        </div>
-        <div class="post-content" style="display:none;">
-          ${post.content}
-        </div>
+      featured.innerHTML = `
+        <h2>${latest.title}</h2>
+        <p class="date">${latest.date}</p>
+        ${latest.content}
       `;
 
-      const title = li.querySelector(".post-title");
-      const content = li.querySelector(".post-content");
+      posts.slice(1).forEach(post => {
+        const li = document.createElement("li");
 
-      title.style.cursor = "pointer";
+        li.innerHTML = `
+          <div class="post-title">
+            <strong>${post.title}</strong> (${post.date})
+          </div>
+          <div class="post-content" style="display:none;">
+            ${post.content}
+          </div>
+        `;
 
-      title.onclick = () => {
-        const isOpen = content.style.display === "block";
+        const title = li.querySelector(".post-title");
+        const content = li.querySelector(".post-content");
 
-        document.querySelectorAll(".post-content").forEach(el => {
-          el.style.display = "none";
-        });
+        title.style.cursor = "pointer";
 
-        content.style.display = isOpen ? "none" : "block";
-      };
+        title.onclick = () => {
+          const isOpen = content.style.display === "block";
 
-      older.appendChild(li);
-    });
+          document.querySelectorAll(".post-content").forEach(el => {
+            el.style.display = "none";
+          });
+
+          content.style.display = isOpen ? "none" : "block";
+        };
+
+        older.appendChild(li);
+      });
+    }
   }
-}
 });
