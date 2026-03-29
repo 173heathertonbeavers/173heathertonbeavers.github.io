@@ -1,12 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://www.173heathertonscouts.co.uk/</loc>
-  </url>
-  <url>
-    <loc>https://www.173heathertonscouts.co.uk/pages/beavers/beavers.html</loc>
-  </url>
-  <url>
-    <loc>https://www.173heathertonscouts.co.uk/pages/cubs/cubs.html</loc>
-  </url>
+
+  <url><loc>https://www.173heathertonscouts.co.uk/</loc></url>
+
+  <!-- Beavers -->
+  <url><loc>https://www.173heathertonscouts.co.uk/pages/beavers/beavers.html</loc></url>
+  <url><loc>https://www.173heathertonscouts.co.uk/pages/beavers/whatis.html</loc></url>
+  <url><loc>https://www.173heathertonscouts.co.uk/pages/beavers/parents-guide.html</loc></url>
+  <url><loc>https://www.173heathertonscouts.co.uk/pages/beavers/termplan.html</loc></url>
+  <url><loc>https://www.173heathertonscouts.co.uk/pages/beavers/cost.html</loc></url>
+  <url><loc>https://www.173heathertonscouts.co.uk/pages/beavers/movingon.html</loc></url>
+  <url><loc>https://www.173heathertonscouts.co.uk/pages/beavers/typebadges.html</loc></url>
+  <url><loc>https://www.173heathertonscouts.co.uk/pages/beavers/badge-placement.html</loc></url>
+
+  <!-- Cubs -->
+  <url><loc>https://www.173heathertonscouts.co.uk/pages/cubs/cubs.html</loc></url>
+  <url><loc>https://www.173heathertonscouts.co.uk/pages/cubs/cubsbp.html</loc></url>
+  <url><loc>https://www.173heathertonscouts.co.uk/pages/cubs/cubstermplan.html</loc></url>
+
+  <!-- Scouts -->
+  <url><loc>https://www.173heathertonscouts.co.uk/pages/scouts/scouts.html</loc></url>
+  <url><loc>https://www.173heathertonscouts.co.uk/pages/scouts/scoutsbp.html</loc></url>
+  <url><loc>https://www.173heathertonscouts.co.uk/pages/scouts/scoutstermplan.html</loc></url>
+
+  <!-- News -->
+  <url><loc>https://www.173heathertonscouts.co.uk/pages/news/mainnews.html</loc></url>
+
+  <!-- Volunteering -->
+  <url><loc>https://www.173heathertonscouts.co.uk/pages/volunteering/volunteering.html</loc></url>
+  <url><loc>https://www.173heathertonscouts.co.uk/pages/volunteering/volunteer-adults.html</loc></url>
+  <url><loc>https://www.173heathertonscouts.co.uk/pages/volunteering/volunteer-young.html</loc></url>
+
 </urlset>
