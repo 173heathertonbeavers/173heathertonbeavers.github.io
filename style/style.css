@@ -173,3 +173,35 @@ footer {  background: #111;  color: white;  padding: 40px 20px 20px;}
   background: #f9f9f9;
   border-radius: 6px;
 }
+
+.post-header {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.triangle {
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 10px solid #333;
+  transition: transform 0.3s ease;
+}
+
+/* rotate triangle */
+.post.open .triangle {
+  transform: rotate(180deg);
+}
+
+/* hide content by default */
+.post-content {
+  display: none;
+  margin-top: 8px;
+}
+
+/* show when open */
+.post.open .post-content {
+  display: block;
+}
