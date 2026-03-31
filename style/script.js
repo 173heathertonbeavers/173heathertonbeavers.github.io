@@ -158,35 +158,37 @@ document.addEventListener("DOMContentLoaded", () => {
         ${latest.content}
       `;
 
-      posts.slice(1).forEach(post => {
-        const li = document.createElement("li");
+    posts.slice(1).forEach(post => {
+  const li = document.createElement("li");
+  li.classList.add("post");
 
-        li.innerHTML = `
-          <div class="post-title">
-            <strong>${post.title}</strong> (${post.date})
-          </div>
-          <div class="post-content" style="display:none;">
-            ${post.content}
-          </div>
-        `;
+  li.innerHTML = `
+    <div class="post-header">
+      <span class="triangle"></span>
+      <strong>${post.title}</strong> (${post.date})
+    </div>
+    <div class="post-content">
+      ${post.content}
+    </div>
+  `;
 
-        const title = li.querySelector(".post-title");
-        const content = li.querySelector(".post-content");
+  const header = li.querySelector(".post-header");
 
-        title.style.cursor = "pointer";
+  header.style.cursor = "pointer";
 
-        title.onclick = () => {
-          const isOpen = content.style.display === "block";
+  header.onclick = () => {
+    const isOpen = li.classList.contains("open");
 
-          document.querySelectorAll(".post-content").forEach(el => {
-            el.style.display = "none";
-          });
+    // close all posts
+    document.querySelectorAll(".post").forEach(p => {
+      p.classList.remove("open");
+    });
 
-          content.style.display = isOpen ? "none" : "block";
-        };
-
-        older.appendChild(li);
-      });
+    // open this one if it was closed
+    if (!isOpen) {
+      li.classList.add("open");
     }
-  }
-});
+  };
+
+  older.appendChild(li);
+}); } } });
