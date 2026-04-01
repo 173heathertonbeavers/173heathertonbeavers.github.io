@@ -184,6 +184,7 @@ function initNews() {
 
     older.appendChild(li);
   });
+   initFullscreenImages();
 }
 
 initNews();
