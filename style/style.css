@@ -24,8 +24,10 @@
 * { box-sizing: border-box;} /* Prevents overflow issues */
 * { transition: all 0.15s ease;}
 /* ======================================================  PAGE SECTIONS ====================================================== */
-section { max-width: 1200px; margin: 40px auto;  padding: 40px 80px; background: #fff;  border-radius: 10px; box-shadow: 0 8px 25px rgba(0,0,0,0.05);}
+section { max-width: 1200px; margin: 40px auto;  padding: 40px clamp(20px,5vw,80px); background: #fff;  border-radius: 10px; box-shadow: 0 8px 25px rgba(0,0,0,0.05);}
 section + section {  margin-top: 20px;}
+@media (max-width: 1300px) {section { margin: 40px 20px; /* 👈 key line */}
+}
 @media (max-width: 768px) {section {  margin: 20px 10px; padding: 20px; }}
 /* ============================================== font Nunito Sans===================================*/
 @font-face { font-family: 'Nunito Sans'; src: url('../fonts/NunitoSans-Variable.ttf') format('truetype');font-weight: 200 900; font-style: normal;}
@@ -93,6 +95,112 @@ nav a:hover, nav a.active {  background: #7C4D9E; }
 .dropdown-content { opacity: 0; transform: translateY(5px); transition: 0.2s;}
 .dropdown:hover .dropdown-content,
 .dropdown.active .dropdown-content { opacity: 1; transform: translateY(0);}
+.menu-toggle {
+  display: none;
+  font-size: 1.8em;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+/* Default (desktop) */
+nav {
+  display: flex;
+}
+
+/* ================= MID WIDTH ================= */
+@media (max-width: 1024px) {
+  .header-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  nav {
+    width: 100%;
+    justify-content: flex-start;
+    margin-top: 10px;
+  }
+}
+
+/* ================= SMALL WIDTH ================= */
+/* ================= SMALL WIDTH ================= */
+@media (max-width: 768px) {
+
+  .menu-toggle {
+    display: block;
+    font-size: 1.8em;
+    padding: 5px 10px;
+    line-height: 1;
+  }
+
+  .header-inner {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  nav {
+    display: none; /* hidden by default */
+    width: 100%;
+    flex-direction: column;
+    margin-top: 10px;
+    gap: 0; /* remove flex gap */
+    padding-top: 5px;
+  }
+
+  nav.open {
+    display: flex; /* shown when toggled */
+  }
+
+  /* Main links */
+  nav a {
+    display: block;
+    width: 100%;
+    padding: 10px 0;
+  }
+
+  /* Dropdown containers */
+  .dropdown {
+    width: 100%;
+  }
+
+  /* Dropdown toggles (Beavers, Cubs etc) */
+  .dropdown-toggle {
+    display: block;
+    width: 100%;
+    padding: 10px 0;
+  }
+
+  /* Dropdown content */
+  .dropdown-content {
+    position: static;
+    display: none;
+    background: transparent;
+    box-shadow: none;
+    padding-left: 15px;
+  }
+
+  .dropdown.active .dropdown-content {
+    display: block;
+  }
+
+  /* Dropdown links */
+  .dropdown-content a {
+    padding: 6px 0;
+    font-size: 0.95em;
+  }
+
+  /* Optional separators */
+  nav > a,
+  .dropdown-toggle {
+    border-bottom: 1px solid rgba(255,255,255,0.15);
+  }
+
+  nav > a:last-child {
+    border-bottom: none;
+  }
+}
 /* ======================================================  FOOTER ====================================================== */
 footer { background: #111; color: white; padding: 5px 5px 5px;}
 .footer-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px;}
@@ -136,6 +244,16 @@ tr:nth-child(even) { background: #f9f9f9;}
 .img-sm {width: 50%;}
 .card-logo { width: auto; height:35px; margin: 10px auto; display: block}
 @media (max-width: 768px) {.img-home { width: 95%; margin: 5px auto 0;} }
+.banner {
+  width: 100%;
+}
+
+.banner img {
+  width: 100%;
+  height: auto;
+  display:block;
+}
+ 
 /* ================= FULLSCREEN ================= */
 #fullscreen {display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9);justify-content: center;align-items: center;z-index: 9999;}
 #fullscreen img {  max-width: 90%;  max-height: 90%;}
