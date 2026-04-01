@@ -155,7 +155,11 @@ form button:hover {  background: #7C4D9E;}
 .contact-page-section p {  text-align: left;}
 .contact-form {  max-width: 650px;  margin: 0 auto;}
 /*=========== News Page ================ */ 
-        .featured h2 {  margin-top: 0;}
+.featured {
+  padding: 25px;
+  border-left: 4px solid #4D2177;
+}        
+.featured h2 {  margin-top: 0;}
     .date {color: black; font-size: 0.9em; font-style: italic;}
       .older-posts h3 {   margin-top: 0;}
     .older-posts ul {  list-style: none; padding: 0;   }
