@@ -1,114 +1,116 @@
-* { box-sizing: border-box;}
-/* ============================================== font Nunito Sans===================================*/
-@font-face {font-family: 'Nunito Sans';src: url('../fonts/NunitoSans/NunitoSans-Regular.ttf') format('truetype');font-weight: 400;font-style: normal;}
-@font-face {font-family: 'Nunito Sans';src: url('../fonts/NunitoSans/NunitoSans-Italic.ttf') format('truetype');font-weight: 400;font-style: italic;}
-/* LIGHT */
-@font-face {font-family: 'Nunito Sans';src: url('../fonts/NunitoSans/NunitoSans-Light.ttf') format('truetype');font-weight: 300;}
-@font-face {font-family: 'Nunito Sans';src: url('../fonts/NunitoSans/NunitoSans-LightItalic.ttf') format('truetype');font-weight: 300;font-style: italic;}
-/* SEMIBOLD */
-@font-face {font-family: 'Nunito Sans';src: url('../fonts/NunitoSans/NunitoSans-SemiBold.ttf') format('truetype');font-weight: 600;}
-@font-face { font-family: 'Nunito Sans'; src: url('../fonts/NunitoSans/NunitoSans-SemiBoldItalic.ttf') format('truetype');font-weight: 600; font-style: italic;}
-/* BOLD */
-@font-face { font-family: 'Nunito Sans'; src: url('../fonts/NunitoSans/NunitoSans-Bold.ttf') format('truetype'); font-weight: 700;}
-@font-face { font-family: 'Nunito Sans';src: url('../fonts/NunitoSans/NunitoSans-BoldItalic.ttf') format('truetype');font-weight: 700;font-style: italic;}
-/* EXTRA BOLD */
-@font-face { font-family: 'Nunito Sans'; src: url('../fonts/NunitoSans/NunitoSans-ExtraBold.ttf') format('truetype'); font-weight: 800;}
-@font-face { font-family: 'Nunito Sans';  src: url('../fonts/NunitoSans/NunitoSans-ExtraBoldItalic.ttf') format('truetype'); font-weight: 800;font-style: italic;}
-/* BLACK */
-@font-face { font-family: 'Nunito Sans'; src: url('../fonts/NunitoSans/NunitoSans-Black.ttf') format('truetype'); font-weight: 900;}
-@font-face {font-family: 'Nunito Sans';src: url('../fonts/NunitoSans/NunitoSans-BlackItalic.ttf') format('truetype');font-weight: 900;font-style: italic;}
-/* =========   GLOBAL / BASE STYLES  =========== */
-body {   font-family: 'Nunito Sans', Arial, sans-serif; line-height: 1.6;  margin: 0;  color: #222;  background: #f5f5f5; }
-a { text-decoration: none; } /* Remove underline from all links by default */
-.container { width: 100%; max-width: 1400px;  margin: 0 auto;  padding: 20px; } /* Standard content container */
-@media (max-width: 768px) { .container { padding: 5px; }}
-/* ======================================================  HEADER & NAVIGATION ====================================================== */
-header {  background: #4D2177;   color: white;  padding: 10px 20px; }
-.header-inner {  display: flex;  flex-wrap: wrap;  align-items: center;  justify-content: space-between;}  /* Layout: logo left, nav right */
-.group-name-link { color: #fff !important; text-decoration: none !important; font-weight: bold;  font-size: 1.6em; } /* Group name (logo text) */
-.group-name-link:hover {  color: #fff !important;} /* Keep it white on hover */
-/* ================= HEADER IMAGE ================= */
-header img {
-  max-height: 55px;  /* controls how tall the header feels */
-  width: auto;       /* keeps image proportions */
-  display: block;
-}
-@media (max-width: 768px) {
-  header img {
-    max-height: 40px;
-  }
-}
-/* ----------------------  Navigation links ---------------------- */
-nav {  display: flex;  gap: 15px;  flex-wrap: wrap; align-items: center;}   
-nav a {  color: white;  padding: 8px 12px;  border-radius: 4px;  font-weight: bold; transition: background 0.3s; } /* Main nav links */
-nav a:hover { background: #7C4D9E;} /* Hover effect */
-nav a.active {  background: #7C4D9E; } /* Active page highlight */
-/* ======================================================  table ====================================================== */
-table { width: 100%; border-collapse: collapse; margin-top: 20px;}
-th, td { border: 1px solid #ddd; padding: 12px; text-align: center;}
-th { background: #4D2177; color: white;}
-tr:nth-child(even) { background: #f9f9f9;}
-/* ======================================================  DROPDOWN MENU ====================================================== */
-.dropdown {  position: relative; } /* Parent container */
+/* ====================================================== CLASS REFERENCE GUIDE 
+   section         → The white boxes. Grey background comes through between
+   Components: Cards
+   .cards            → Grid style for cards
+   .cards-3          → 3 column grid
+   .cards-2          → 2 column grid
+   .cards-1           → 1 column grid  
+   .card             → Card styling / design
 
-.dropdown-content { display: none; position: absolute; top: 100%;left: 0; background: #4D2177; min-width: 220px; border-radius: 6px; box-shadow: 0 5px 15px rgba(0,0,0,0.15); z-index: 1000;}  /* Hidden dropdown content */
-.dropdown-content a::before {content: "• ";  margin-right: 5px;} /* Dropdown smaller and listed */
-.dropdown-content a { font-size: 0.9em;  display: block;  padding: 10px;  color: white; }
-.dropdown.active .dropdown-content {  display: block;} /* Show when JS adds .active */
-@media (hover: hover) and (pointer: fine) { .dropdown:hover .dropdown-content {  display: block;  } } /* Desktop: allow hover interaction */
-/* ======================================================  MOBILE NAVIGATION FIXES ====================================================== */
-@media (max-width: 768px) { 
-  nav {  flex-direction: column;  gap: 10px; }  /* Stack nav vertically */
-  .dropdown-content {  position: static;  display: none !important; /* Make dropdown inline instead of floating */  box-shadow: none;  background: transparent;} /* force hidden */ 
-  .dropdown.active .dropdown-content {    display: block !important;  } } /* Only show when tapped */
+   Components: Tables
+   <table> - Make table
+  <tr>  <th>Date</th>  <th>Topic</th>  <th>Special instructions</th>  </tr> - table row - heading
+  <tr> <td>15/4 </td> <td>1st Meeting back</td>  <td></td> </tr> - table row - normal
+   .badge-table      →  <table class="badge-table"> Table with images in column 1 - maintain good sizing
+   .table-img        → Fixed-size table images
+ 
+   Text:
+   .text-centre      → Center text   (example usage - <h2 class="text-left">Title</h2> )
+   .text-left        → Left align
+   .text-justify     → Justified text
+   .text-italic      → italic text
+   .text-light      → light text
+   .text-semibold     → semibold text
+====================================================== */
+* { box-sizing: border-box;} /* Prevents overflow issues */
 /* ======================================================  PAGE SECTIONS ====================================================== */
-section {  padding: 40px 20px;  margin-bottom: 40px;  background: #fff;  border-radius: 10px; }
+section {    max-width: 1200px;     margin: 40px auto;  padding: 40px 80px; background: #fff;  border-radius: 10px;}
+@media (max-width: 768px) {section {  margin: 20px 10px; padding: 20px; }}
+/* ============================================== font Nunito Sans===================================*/
+@font-face { font-family: 'Nunito Sans'; src: url('../fonts/NunitoSans-Variable.ttf') format('truetype');font-weight: 200 900; font-style: normal;}
+@font-face { font-family: 'Nunito Sans';src: url('../fonts/NunitoSans-Italic-Variable.ttf') format('truetype'); font-weight: 200 900; font-style: italic;}
 /* ======================================================typography====================================================== */
-h1, h2 { font-weight: 900; text-align: center;}
-h3 { font-weight: 800; text-align: center;}
-p { font-weight: 400;}
+h1 { font-weight: 900; text-align: center;} /* nunito sans black */ 
+h2 { font-weight: 800; text-align: center;} /* extrabold*/
+h3 { font-weight: 700; text-align: center;} /* bold*/
+p { font-weight: 400;} /* normal*/
 .text-light { font-weight: 300; }
 .text-semibold { font-weight: 600; }
-.text-bold { font-weight: 700; }
-.text-extrabold { font-weight: 800; }
-.text-black { font-weight: 900; }
 .text-italic { font-style: italic; }
 .text-centre {text-align: center;}
 .text-left {text-align:left}
 .text-justify {text-align:justify}
+/* =========   GLOBAL / BASE STYLES  =========== */
+body {   font-family: 'Nunito Sans', Arial, sans-serif; line-height: 1.6;  margin: 0;  color: #222;  background: #f5f5f5; }
+a { text-decoration: none; color: inherit;} 
+/* ======================================================  HEADER & NAVIGATION ====================================================== */
+header {  background: #4D2177;   color: white;  padding: 10px 20px; }
+.header-inner {  display: flex;  flex-wrap: wrap;  align-items: center;  justify-content: space-between;}  /* Layout: logo left, nav right */
+.group-name-link {font-weight: 700;  font-size: 1.6em; } 
+.group-name-link:hover {  color: #fff !important;} /* Keep it white on hover */
+nav {  display: flex;  gap: 15px;  flex-wrap: wrap; align-items: center;}   
+nav a { padding: 8px 12px;  border-radius: 4px;  font-weight: bold; transition: background 0.3s; }
+nav a:hover, nav a.active {  background: #7C4D9E; } 
+.dropdown {position: relative; }
+.dropdown-content { display: none; position: absolute; top: 100%;left: 0; background: #4D2177; min-width: 220px; border-radius: 6px; box-shadow: 0 5px 15px rgba(0,0,0,0.15); z-index: 1000;}  /* Hidden dropdown content */
+.dropdown-content a { font-size: 0.9em;  display: block;  padding: 10px;}
+.dropdown-content a::before {content: "• ";  margin-right: 5px;} 
+.dropdown.active .dropdown-content {  display: block;} 
+@media (hover: hover) and (pointer: fine) { .dropdown:hover .dropdown-content {  display: block;  } } /* Desktop: allow hover interaction */
+@media (max-width: 768px) { 
+  nav {  flex-direction: column;  align-items: flex-start; gap: 10px; }  /* Stack nav vertically */
+  .dropdown-content {  position: static;  display: none !important;  box-shadow: none;  background: transparent;padding-left: 10px;} /* force hidden */ 
+  .dropdown.active .dropdown-content { display: block !important;  } } /* Only show when tapped */
+.dropdown-content { opacity: 0; transform: translateY(5px); transition: 0.2s;}
+.dropdown:hover .dropdown-content,
+.dropdown.active .dropdown-content { opacity: 1; transform: translateY(0);}
+/* ======================================================  FOOTER ====================================================== */
+footer { background: #111; color: white; padding: 5px 5px 5px;}
+.footer-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px;}
+.footer-column h3 { margin-bottom: 10px; color: #7C4D9E;}
+.footer-column p { text-align:center;    margin: 5px 0; line-height: 1.3;}
+.footer-link { text-decoration: underline;}
+.footer-link:hover { color: #ccc;}
+.footer-bottom { margin-top: 30px; padding-top: 15px; border-top: 1px solid #333; text-align: center; font-size: 0.9em;}
+@media (max-width: 768px) {.footer-grid { grid-template-columns: 1fr; text-align: center; }}
 /* ======================================================CARD LAYOUT SYSTEM (EXPLICIT COLUMNS)====================================================== */
 .cards { display: grid; gap: 20px; width: 100%; align-items: stretch;} /* Base cards (shared styles only) */
 .cards-3 {  grid-template-columns: repeat(3, minmax(0, 1fr));} /* 3-column layout */
 .cards-2 {  grid-template-columns: repeat(2, minmax(0, 1fr));} /* 2-column layout */
 .cards-1 { grid-template-columns: 1fr;} /* 1-column layout */
-.volunteering-row { margin-top: 30px;} /* Volunteering / full-width row spacing */
 /* ====================================================== CARD STYLING====================================================== */
-info-card {  display: block; width: 100%; min-width: 0;}
-.card {width: 100%; height: 100%;   display: flex;  flex-direction: column; 
-  padding: 15px;
-  background: #f9f9f9;
-  color: #222;
-  border-radius: 10px;
-  text-align: center;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-  transition: transform 0.3s, box-shadow 0.3s;
-  min-width: 0;
-  overflow: hidden;} 
-.card-link { display: block;text-decoration: none;color: inherit;}
-/* Text wrapping */
-.card h3,
-.card p {  overflow-wrap: break-word;  word-break: break-word; margin-bottom: 10px;}
-/* Hover */
-.card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.15);}
-/* ======================================================  MOBILE====================================================== */
+.card {display: flex; flex-direction: column; justify-content: space-between; height: 100%;padding: 15px; background: #f9f9f9;  color: #222;border-radius: 10px;  text-align: center;  text-decoration: none; box-shadow: 0 5px 15px rgba(0,0,0,0.1);  transition: transform 0.3s, box-shadow 0.3s;}
+.card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.15);} /* Hover */
+.card p {  overflow-wrap: break-word;  word-break: break-word; margin-bottom: 10px;} /* Text wrapping */
 @media (max-width: 600px) { .cards-3, .cards-2, .cards-1 {   grid-template-columns: 1fr; }}
-/* ======================================================   BUTTONS / VOLUNTEER SECTION ====================================================== */
-.volunteer-section {  text-align: center;  background: #f0f0f0;}
-                                                     /* Primary buttons */
-.btn-primary, .btn-secondary {  display: inline-block;  background: #4D2177;  color: white;  padding: 12px 25px;  border-radius: 6px;  font-weight: bold;  margin-top: 15px;  transition: background 0.3s; }
-.btn-primary:hover,
-.btn-secondary:hover {  background: #7C4D9E;}
-/* ====================================================== FORMS (Contact page)====================================================== */
+/* ======================================================  table ====================================================== */
+table { width: 100%; border-collapse: collapse; margin-top: 20px;}
+th, td { border: 1px solid #ddd; padding: 12px; text-align: center;}
+th { background: #4D2177; color: white;}
+tr:nth-child(even) { background: #f9f9f9;}
+.table-img { width: 100px; height: auto; display: block; margin: 10px auto;}
+@media (max-width: 800px) { .table-img {width: 60px; }}
+/*=========== Badge Type table images ================ */ 
+.badge-table th:nth-child(1), .badge-table td:nth-child(1) { width: 150px; /* Photo column */}
+.badge-table th:nth-child(2),.badge-table td:nth-child(2) {  width: 200px; }
+.badge-table th:nth-child(3), .badge-table td:nth-child(3) { width: auto; /* Description takes remaining space */}
+@media (max-width: 600px) {
+  .badge-table th:nth-child(1), .badge-table td:nth-child(1) { width: 90px; }
+  .badge-table th:nth-child(2), .badge-table td:nth-child(2) { width: auto;}
+  .badge-table th:nth-child(3), .badge-table td:nth-child(3) {  width: auto;}}
+/* ====================================================== IMAGE STYLING====================================================== */
+.img {  display: block; margin: 20px auto 0;  max-width: 100%;  height: auto;  border-radius: 10px;  box-shadow: 0 5px 15px rgba(0,0,0,0.1);}
+.img-home { width: 50%;}
+.img-lg { width: 100%; }
+.img-sm {width: 50%;}
+.card-logo { width: auto; height:35px; margin: 10px auto; display: block}
+@media (max-width: 768px) {.img-home { width: 95%; margin: 5px auto 0;} }
+/* ================= FULLSCREEN ================= */
+#fullscreen {display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9);justify-content: center;align-items: center;z-index: 9999;}
+#fullscreen img {  max-width: 90%;  max-height: 90%;}
+#closeBtn {  position: absolute;  top: 20px;  right: 30px;  font-size: 40px;  color: white; cursor: pointer;} /* Close button */
+.clickable {  cursor: pointer;} /* Make images clickable */
+  /* ====================================================== FORMS (Contact page)====================================================== */
 form label {  display: block;  margin-top: 15px;  font-weight: bold;  color: #4D2177;}
 form input,
 form select,
@@ -121,87 +123,20 @@ form button:hover {  background: #7C4D9E;}
 .contact-page-section h2,
 .contact-page-section p {  text-align: left;}
 .contact-form {  max-width: 650px;  margin: 0 auto;}
-/* ======================================================  FOOTER ====================================================== */
-footer {  background: #111;  color: white;  padding: 40px 20px 20px;}
-.footer-grid {  display: grid;  grid-template-columns: repeat(3, 1fr);  gap: 30px; text-align: left; } /* Grid layout */
-.footer-column h3 {  margin-bottom: 10px;  color: #7C4D9E; text-align: left;} /* Columns */
-.footer-column p {  margin: 5px 0;  text-align: left;}  /* Columns */
-.footer-link { color: #fff;text-decoration: underline;} /* Links */
-.footer-link:hover {  color: #ccc;} /* Links */
-.footer-bottom { margin-top: 30px;text-align: center;  border-top: 1px solid #333;padding-top: 15px;  font-size: 0.9em;}  /* Bottom bar */
-@media (max-width: 768px) {.footer-grid {  grid-template-columns: 1fr;    text-align: center;  } .footer-column h3 { text-align: center;} .footer-column p {   text-align: center;  }} /* Mobile responsive */
-/* ====================================================== IMAGE STYLING====================================================== */
-.homegroupphoto { display: block;  width: 50%;  height: auto;  margin: 20px auto 0;  border-radius: 10px;  box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
-@media (max-width: 768px) {.homegroupphoto { width: 95%;  height: auto;  margin: 5px auto 0;} }
-.largephoto { display: block;  max-width: 100%;  height: auto;  margin: 20px auto 0;  border-radius: 10px;  box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
-.smallphoto { display: block;  max-width: 50%;  height: auto;  margin: 20px auto 0;  border-radius: 10px;  box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
-.card-logo { width: auto; height:35px; margin: 10px auto; display: block}
-/* ================= IMAGE CONTAINER ================= */
-.image-container {position: relative;display: inline-block;}
-.image-container img {  display: block;}
-.fullscreen-icon {position: absolute; bottom: 10px; right: 10px; background: rgba(0,0,0,0.6); color: white; padding: 5px 8px; border-radius: 5px; font-size: 18px; opacity: 0;  transition: opacity 0.3s;  cursor: pointer;} /* Hover icon */
-.image-container:hover .fullscreen-icon {opacity: 1;} /* Show icon on hover */
-/* ================= FULLSCREEN ================= */
-#fullscreen {display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9);justify-content: center;align-items: center;z-index: 9999;}
-#fullscreen img {  max-width: 90%;  max-height: 90%;}
-#closeBtn {  position: absolute;  top: 20px;  right: 30px;  font-size: 40px;  color: white; cursor: pointer;} /* Close button */
-.clickable {  cursor: pointer;} /* Make images clickable */
 /*=========== News Page ================ */ 
-    .featured {
-      background: #f9f9f9;
-      padding: 20px;
-      border-radius: 10px;
-      margin-bottom: 30px;}
+    .featured {background: #f9f9f9; padding: 20px; border-radius: 10px; margin-bottom: 30px;}
     .featured h2 {  margin-top: 0;}
     .date {color: black; font-size: 0.9em;}
     .older-posts { background: #f9f9f9; padding: 15px; border-radius: 10px;}
     .older-posts h3 {   margin-top: 0;}
     .older-posts ul {    list-style: none;    padding: 0;   }
     .older-posts li {      padding: 8px 0;      border-bottom: 1px solid #ddd;    }
-
     .older-posts a {text-decoration: none;  color: #333;}
     .older-posts a:hover { text-decoration: underline;}
-
-/* Expandable post content */
-.post-title {
-  padding: 8px 0;
-}
-
-.post-content {
-  margin-top: 8px;
-  padding: 10px;
-  background: #f9f9f9;
-  border-radius: 6px;
-}
-
-.post-header {
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.triangle {
-  width: 0;
-  height: 0;
-  border-left: 6px solid transparent;
-  border-right: 6px solid transparent;
-  border-top: 10px solid #333;
-  transition: transform 0.3s ease;
-}
-
-/* rotate triangle */
-.post.open .triangle {
-  transform: rotate(180deg);
-}
-
-/* hide content by default */
-.post-content {
-  display: none;
-  margin-top: 8px;
-}
-
-/* show when open */
-.post.open .post-content {
-  display: block;
-}
+.post-title {  padding: 8px 0;} /* Expandable post content */
+.post-content {display:none; margin-top: 8px;  padding: 10px;  background: #f9f9f9;  border-radius: 6px;}
+.post-header {  cursor: pointer;  display: flex;  align-items: center;  gap: 8px;}
+.triangle {  width: 0;height: 0;border-left: 6px solid transparent;  border-right: 6px solid transparent;  border-top: 10px solid #333; transition: transform 0.3s ease;}
+.post.open .triangle {transform: rotate(180deg);} /* rotate triangle */
+.post-content { display: none; margin-top: 8px;} /* hide content by default */
+.post.open .post-content { display: block;} /* show when open */
