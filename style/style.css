@@ -1,7 +1,6 @@
 /* ====================================================== CLASS REFERENCE GUIDE 
    section         → The white boxes. Grey background comes through between
    Components: Cards
-   .cards            → Grid style for cards
    .cards-3          → 3 column grid
    .cards-2          → 2 column grid
    .cards-1           → 1 column grid  
@@ -42,9 +41,10 @@ p { font-weight: 400;} /* normal*/
 .text-justify {text-align:justify}
 /* =========   GLOBAL / BASE STYLES  =========== */
 body {   font-family: 'Nunito Sans', Arial, sans-serif; line-height: 1.6;  margin: 0;  color: #222;  background: #f5f5f5; }
-a { text-decoration: none; color: inherit;} 
+a {  color: #4D2177; text-decoration: underline;}
 /* ======================================================  HEADER & NAVIGATION ====================================================== */
 header {  background: #4D2177;   color: white;  padding: 10px 20px; }
+header a { text-decoration: none;color: white;}
 .header-inner {  display: flex;  flex-wrap: wrap;  align-items: center;  justify-content: space-between;}  /* Layout: logo left, nav right */
 .group-name-link {font-weight: 700;  font-size: 1.6em; } 
 .group-name-link:hover {  color: #fff !important;} /* Keep it white on hover */
@@ -69,17 +69,19 @@ footer { background: #111; color: white; padding: 5px 5px 5px;}
 .footer-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px;}
 .footer-column h3 { margin-bottom: 10px; color: #7C4D9E;}
 .footer-column p { text-align:center;    margin: 5px 0; line-height: 1.3;}
-.footer-link { text-decoration: underline;}
+.footer-link { text-decoration: underline;color:inherit}
 .footer-link:hover { color: #ccc;}
 .footer-bottom { margin-top: 30px; padding-top: 15px; border-top: 1px solid #333; text-align: center; font-size: 0.9em;}
 @media (max-width: 768px) {.footer-grid { grid-template-columns: 1fr; text-align: center; }}
 /* ======================================================CARD LAYOUT SYSTEM (EXPLICIT COLUMNS)====================================================== */
-.cards { display: grid; gap: 20px; width: 100%; align-items: stretch;} /* Base cards (shared styles only) */
+.cards { display: grid; gap: 20px; width: 100%; align-items: stretch; margin-bottom: 20px;} /* Base cards (shared styles only) */
 .cards-3 {  grid-template-columns: repeat(3, minmax(0, 1fr));} /* 3-column layout */
 .cards-2 {  grid-template-columns: repeat(2, minmax(0, 1fr));} /* 2-column layout */
 .cards-1 { grid-template-columns: 1fr;} /* 1-column layout */
 /* ====================================================== CARD STYLING====================================================== */
-.card {display: flex; flex-direction: column; justify-content: space-between; height: 100%;padding: 15px; background: #f9f9f9;  color: #222;border-radius: 10px;  text-align: center;  text-decoration: none; box-shadow: 0 5px 15px rgba(0,0,0,0.1);  transition: transform 0.3s, box-shadow 0.3s;}
+.card {text-decoration: none;color: inherit;display: block;display: flex; flex-direction: column; justify-content: space-between; height: 100%;padding: 15px; background: #f9f9f9;  color: #222;border-radius: 10px;  text-align: center;  text-decoration: none; box-shadow: 0 5px 15px rgba(0,0,0,0.1);  transition: transform 0.3s, box-shadow 0.3s;}
+.card h2, .card p { margin: 0;}
+.card h2 { margin-bottom: 8px; /* space between title + text */}
 .card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.15);} /* Hover */
 .card p {  overflow-wrap: break-word;  word-break: break-word; margin-bottom: 10px;} /* Text wrapping */
 @media (max-width: 600px) { .cards-3, .cards-2, .cards-1 {   grid-template-columns: 1fr; }}
