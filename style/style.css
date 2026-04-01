@@ -22,15 +22,44 @@
    .text-semibold     → semibold text
 ====================================================== */
 * { box-sizing: border-box;} /* Prevents overflow issues */
+* { transition: all 0.15s ease;}
 /* ======================================================  PAGE SECTIONS ====================================================== */
-section {    max-width: 1200px;     margin: 40px auto;  padding: 40px 80px; background: #fff;  border-radius: 10px;}
+section { max-width: 1200px; margin: 40px auto;  padding: 40px 80px; background: #fff;  border-radius: 10px; box-shadow: 0 8px 25px rgba(0,0,0,0.05);}
+section + section {  margin-top: 20px;}
 @media (max-width: 768px) {section {  margin: 20px 10px; padding: 20px; }}
 /* ============================================== font Nunito Sans===================================*/
 @font-face { font-family: 'Nunito Sans'; src: url('../fonts/NunitoSans-Variable.ttf') format('truetype');font-weight: 200 900; font-style: normal;}
 @font-face { font-family: 'Nunito Sans';src: url('../fonts/NunitoSans-Italic-Variable.ttf') format('truetype'); font-weight: 200 900; font-style: italic;}
 /* ======================================================typography====================================================== */
 h1 { font-weight: 900; text-align: center;} /* nunito sans black */ 
-h2 { font-weight: 800; text-align: center;} /* extrabold*/
+h1 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+h1::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 2px;
+  background: #ddd;
+  margin: 15px auto 0;
+}
+h2 { font-weight: 800; text-align: center;   margin-bottom: 20px;} /* extrabold*/
+h2 {
+  position: relative;
+}
+
+h2::after {
+  content: "";
+  display: block;
+  width: 50px;
+  height: 4px;
+  background: #4D2177;
+  margin: 10px auto 0;
+  border-radius: 2px;
+}
 h3 { font-weight: 700; text-align: center;} /* bold*/
 p { font-weight: 400;} /* normal*/
 .text-light { font-weight: 300; }
@@ -79,10 +108,10 @@ footer { background: #111; color: white; padding: 5px 5px 5px;}
 .cards-2 {  grid-template-columns: repeat(2, minmax(0, 1fr));} /* 2-column layout */
 .cards-1 { grid-template-columns: 1fr;} /* 1-column layout */
 /* ====================================================== CARD STYLING====================================================== */
-.card {text-decoration: none;color: inherit;display: block;display: flex; flex-direction: column; justify-content: space-between; height: 100%;padding: 15px; background: #f9f9f9;  color: #222;border-radius: 10px;  text-align: center;  text-decoration: none; box-shadow: 0 5px 15px rgba(0,0,0,0.1);  transition: transform 0.3s, box-shadow 0.3s;}
+.card {text-decoration: none;color: inherit;display: block;display: flex; flex-direction: column; justify-content: space-between; height: 100%;padding: 15px; background: #f9f9f9;  color: #222;border-radius: 10px;  text-align: center;  text-decoration: none; box-shadow: 0 5px 15px rgba(0,0,0,0.1);  transition: transform 0.3s ease, box-shadow 0.3s;}
 .card h2, .card p { margin: 0;}
 .card h2 { margin-bottom: 8px; /* space between title + text */}
-.card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.15);} /* Hover */
+.card:hover { transform: translateY(-6px) scale(1.01); box-shadow: 0 15px 30px rgba(0,0,0,0.15);} /* Hover */
 .card p {  overflow-wrap: break-word;  word-break: break-word; margin-bottom: 10px;} /* Text wrapping */
 @media (max-width: 600px) { .cards-3, .cards-2, .cards-1 {   grid-template-columns: 1fr; }}
 /* ======================================================  table ====================================================== */
@@ -126,13 +155,15 @@ form button:hover {  background: #7C4D9E;}
 .contact-page-section p {  text-align: left;}
 .contact-form {  max-width: 650px;  margin: 0 auto;}
 /*=========== News Page ================ */ 
-    .featured {background: #f9f9f9; padding: 20px; border-radius: 10px; margin-bottom: 30px;}
-    .featured h2 {  margin-top: 0;}
-    .date {color: black; font-size: 0.9em;}
-    .older-posts { background: #f9f9f9; padding: 15px; border-radius: 10px;}
-    .older-posts h3 {   margin-top: 0;}
-    .older-posts ul {    list-style: none;    padding: 0;   }
-    .older-posts li {      padding: 8px 0;      border-bottom: 1px solid #ddd;    }
+.featured {
+  padding: 25px;
+  border-left: 4px solid #4D2177;
+}        
+.featured h2 {  margin-top: 0;}
+    .date {color: black; font-size: 0.9em; font-style: italic;}
+      .older-posts h3 {   margin-top: 0;}
+    .older-posts ul {  list-style: none; padding: 0;   }
+    .older-posts li { padding: 8px 0;   border-bottom: 1px solid #ddd;    }
     .older-posts a {text-decoration: none;  color: #333;}
     .older-posts a:hover { text-decoration: underline;}
 .post-title {  padding: 8px 0;} /* Expandable post content */
