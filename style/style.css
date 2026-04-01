@@ -133,12 +133,13 @@ nav {
     padding: 5px 10px;
     line-height: 1;
   }
-
   .header-inner {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: nowrap; /* ✅ ADD THIS */
   }
+}
 
   nav {
     display: none; /* hidden by default */
@@ -200,7 +201,6 @@ nav {
   nav > a:last-child {
     border-bottom: none;
   }
-}
 /* ======================================================  FOOTER ====================================================== */
 footer { background: #111; color: white; padding: 5px 5px 5px;}
 .footer-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px;}
