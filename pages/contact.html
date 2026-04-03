@@ -38,7 +38,7 @@
 
       <button type="submit">Send Message</button>
     </form>
-  <div id="thank-you-popup" class="popup-overlay">
+  <div id="thank-you-popup" class="popup-overlay hidden">
   <div class="popup-box">
     <button id="close-popup" class="close-btn">&times;</button>
     <h2>Thank you!</h2>
@@ -54,17 +54,25 @@ document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("contact-form");
   const dropdown = document.getElementById("interest");
   const recipientField = document.getElementById("recipient");
- const popup = document.getElementById("thank-you-popup");
-const closeBtn = document.getElementById("close-popup");
-  if (!form) {
-    console.error("❌ Form not found");
+  const popup = document.getElementById("thank-you-popup");
+  const closeBtn = document.getElementById("close-popup");
+
+  if (!form || !popup || !closeBtn) {
+    console.error("❌ Required elements not found");
     return;
   }
 
-  form.addEventListener("submit", async function (e) {
-    e.preventDefault(); // 🚫 STOP redirect
+  // Ensure popup is hidden on load (extra safety for mobile)
+  popup.classList.add("hidden");
+  popup.style.display = "none";
 
-    // Set recipient
+  // ======================================================
+  // 📤 FORM SUBMISSION
+  // ======================================================
+  form.addEventListener("submit", async function (e) {
+    e.preventDefault(); // 🚫 stop redirect
+
+    // Set recipient based on dropdown
     switch (dropdown.value) {
       case "beavers":
         recipientField.value = "jackson.a.o.woodward@gmail.com";
@@ -91,26 +99,40 @@ const closeBtn = document.getElementById("close-popup");
         headers: { Accept: "application/json" }
       });
 
-     if (response.ok) {
-  form.reset();
-  popup.style.display = "flex"; // show popup
-} else {
+      if (response.ok) {
+        form.reset();
+
+        // Show popup safely
+        popup.classList.remove("hidden");
+        popup.style.display = "flex";
+
+        // Optional: prevent background scroll
+        document.body.style.overflow = "hidden";
+      } else {
         alert("Something went wrong. Please try again.");
       }
     } catch (error) {
       alert("Submission failed. Try again later.");
     }
   });
-  closeBtn.addEventListener("click", () => {
-  popup.style.display = "none";
-});
 
-// Optional: close when clicking outside the box
-popup.addEventListener("click", (e) => {
-  if (e.target === popup) {
+  // ======================================================
+  // ❌ CLOSE POPUP
+  // ======================================================
+  function closePopup() {
+    popup.classList.add("hidden");
     popup.style.display = "none";
+    document.body.style.overflow = ""; // restore scroll
   }
-});
+
+  closeBtn.addEventListener("click", closePopup);
+
+  // Close when clicking outside popup box
+  popup.addEventListener("click", (e) => {
+    if (e.target === popup) {
+      closePopup();
+    }
+  });
 });
 </script>
 </body>

@@ -271,13 +271,17 @@ form button:hover {  background: #7C4D9E;}
   left: 0;
   width: 100%;
   height: 100%;
-  display: none; /* hidden by default */
-  justify-content: center;
+
+  display: none; /* keep this */
   align-items: center;
+  justify-content: center;
+
   background: rgba(0, 0, 0, 0.6);
   z-index: 1000;
 }
-
+.popup-overlay.hidden {
+  display: none !important;
+}
 /* Popup box */
 .popup-box {
   background: white;
