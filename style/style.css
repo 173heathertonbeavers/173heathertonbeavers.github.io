@@ -318,3 +318,13 @@ form button:hover {  background: #7C4D9E;}
     transform: translateY(0);
   }
 }
+
+/* Default (placeholder state) */
+.form-select {
+  color: #888; /* grey like your inputs */
+}
+
+/* When user selects a real option */
+.form-select:valid {
+  color: #000; /* normal text */
+}
