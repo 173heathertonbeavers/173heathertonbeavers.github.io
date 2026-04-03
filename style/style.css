@@ -266,18 +266,18 @@ form button:hover {  background: #7C4D9E;}
 
 /* Overlay background */
 .popup-overlay {
-  position: fixed;
+  position: fixed !important;  /* 🔥 force overlay */
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
+  width: 100vw;               /* 🔥 use viewport units */
+  height: 100vh;
 
-  display: none; /* keep this */
-  align-items: center;
+  display: none;
   justify-content: center;
+  align-items: center;
 
   background: rgba(0, 0, 0, 0.6);
-  z-index: 1000;
+  z-index: 9999;              /* 🔥 ensure it's above everything */
 }
 .popup-overlay.hidden {
   display: none !important;
@@ -289,9 +289,11 @@ form button:hover {  background: #7C4D9E;}
   border-radius: 12px;
   max-width: 400px;
   width: 90%;
-  text-align: center;
+
   position: relative;
-  animation: fadeIn 0.3s ease;
+  z-index: 10000; /* ensure above overlay */
+
+  text-align: center;
 }
 
 /* Close button */
