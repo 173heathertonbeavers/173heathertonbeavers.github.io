@@ -108,34 +108,11 @@ nav a.active {  background: #7C4D9E;}
     flex-wrap: wrap;            /* allow nav to drop */
   }
 
-  nav {  
-    display: flex;    
-    width: 100%;  
-    margin-top: 10px;  
-    flex-wrap: wrap;
-    flex-basis: 100%;           /* ✅ forces nav to next row */
-  }
-}
+  nav {     display: flex;       width: 100%;     margin-top: 10px;     flex-wrap: wrap;   flex-basis: 100%;}}
 /* ================= SMALL WIDTH (mobile) ================= */
 @media (max-width: 768px) {
-
-  /* Show hamburger */
-  .menu-toggle {
-    display: block;
-    font-size: 1.8em;
-    background: none;
-    border: none;
-    color: white;
-    cursor: pointer;
-  }
-
-  /* Header layout */
-  .header-inner {
-    display: flex;
-    flex-wrap: wrap;              /* 🔑 allows nav to drop below */
-    align-items: center;
-    justify-content: space-between;
-  }
+  .menu-toggle { display: block; font-size: 1.8em; background: none; border: none; color: white; cursor: pointer; }
+  .header-inner { display: flex; flex-wrap: wrap;         align-items: center; justify-content: space-between;}
 
   /* Title */
   .group-name-link {
@@ -256,10 +233,14 @@ form input,
 form select,
 form textarea { width: 100%; padding: 12px; border-radius: 6px; border: 1px solid #ccc; margin-bottom: 10px; font-size: 1em;}
 form textarea {  resize: vertical;}
-form button {  width: 100%;  background: #4D2177;  color: white;  padding: 14px;  font-size: 1.1em;  font-weight: bold;  border: none;  border-radius: 6px;}
+form button {  width: 100%;  background: #4D2177; font-family: inherit; color:inherit;  padding: 14px;  font-size: 1.1em;  font-weight: bold;  border: none;  border-radius: 6px;}
 form button:hover {  background: #7C4D9E;}
 /* ======================================================   CONTACT PAGE LAYOUT====================================================== */
-.contact-page-section {  padding: 60px 20px;}
+.contact-page-section,
+.contact-page-section * {
+  font-family: 'Nunito Sans', Arial, sans-serif;
+  color: #222;
+}
 .contact-page-section h2,
 .contact-page-section p {  text-align: left;}
 .contact-form {  max-width: 650px;  margin: 0 auto;}
@@ -282,3 +263,52 @@ form button:hover {  background: #7C4D9E;}
 .post.open .triangle {transform: rotate(180deg);} /* rotate triangle */
 .post-content { display: none; margin-top: 8px;} /* hide content by default */
 .post.open .post-content { display: block;} /* show when open */
+
+/* Overlay background */
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none; /* hidden by default */
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 1000;
+}
+
+/* Popup box */
+.popup-box {
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  max-width: 400px;
+  width: 90%;
+  text-align: center;
+  position: relative;
+  animation: fadeIn 0.3s ease;
+}
+
+/* Close button */
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  border: none;
+  background: none;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* Simple animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
