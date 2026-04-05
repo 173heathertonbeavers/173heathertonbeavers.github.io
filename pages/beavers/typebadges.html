@@ -107,6 +107,19 @@ Your child may be given one of these if they come to a camp, or if we earn one i
   width: 150px;
   height: auto;
 }
+
+  @media (max-width: 768px) {
+  .camp-section {
+    flex-direction: column;
+    align-items: flex-start; /* keeps text aligned nicely */
+  }
+
+  .camp-section img {
+    width: 100%;       /* optional: makes image scale nicely */
+    max-width: 300px;  /* prevents it getting too big */
+    margin-top: 10px;
+  }
+}
 </style>
 </section>
 
