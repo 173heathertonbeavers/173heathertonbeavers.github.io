@@ -233,7 +233,7 @@ form input,
 form select,
 form textarea { width: 100%; padding: 12px; border-radius: 6px; border: 1px solid #ccc; margin-bottom: 10px; font-size: 1em;}
 form textarea {  resize: vertical;}
-form button {  width: 100%;  background: #4D2177; font-family: inherit; color: white;  padding: 14px;  font-size: 1.1em;  font-weight: bold;  border: none;  border-radius: 6px;}
+form button {  width: 100%;  background: #4D2177; font-family: inherit; color: white !important;  padding: 14px;  font-size: 1.1em;  font-weight: bold;  border: none;  border-radius: 6px;}
 form button:hover {  background: #7C4D9E;}
 /* ======================================================   CONTACT PAGE LAYOUT====================================================== */
 .contact-page-section,
