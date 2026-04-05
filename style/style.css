@@ -243,6 +243,9 @@ form button:hover {  background: #7C4D9E;}
 }
 .contact-page-section h2,
 .contact-page-section p {  text-align: left;}
+.contact-page-section form button {
+  color: white !important;
+}
 .contact-form {  max-width: 650px;  margin: 0 auto;}
 /*=========== News Page ================ */ 
 .featured {
