@@ -211,8 +211,8 @@ tr:nth-child(even) { background: #f9f9f9;}
 .badge-table th:nth-child(3), .badge-table td:nth-child(3) { width: auto; /* Description takes remaining space */}
 @media (max-width: 600px) {
    .badge-table td {
-    font-size: 0.9em;     /* slightly smaller text */
-    padding: 8px;         /* tighter spacing */
+    font-size: 0.6em;     /* slightly smaller text */
+    padding: 2px;         /* tighter spacing */
    }
   .badge-table th:nth-child(1), .badge-table td:nth-child(1) { width: 90px; }
   .badge-table th:nth-child(2), .badge-table td:nth-child(2) { width: auto;}
