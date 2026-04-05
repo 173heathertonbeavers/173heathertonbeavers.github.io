@@ -209,15 +209,71 @@ tr:nth-child(even) { background: #f9f9f9;}
 .badge-table th:nth-child(1), .badge-table td:nth-child(1) { width: 150px; /* Photo column */}
 .badge-table th:nth-child(2),.badge-table td:nth-child(2) {  width: 200px; }
 .badge-table th:nth-child(3), .badge-table td:nth-child(3) { width: auto; /* Description takes remaining space */}
-@media (max-width: 600px) {
-   .badge-table td {
-    font-size: 0.6em;     /* slightly smaller text */
-    padding: 2px;         /* tighter spacing */
-   }
-  .badge-table th:nth-child(1), .badge-table td:nth-child(1) { width: 90px; }
-  .badge-table th:nth-child(2), .badge-table td:nth-child(2) { width: auto;}
-  .badge-table th:nth-child(3), .badge-table td:nth-child(3) {  width: auto;}}
-/* ====================================================== IMAGE STYLING====================================================== */
+@media (max-width: 800px) {
+
+  /* Hide headers */
+  .badge-table thead,
+  .badge-table thead tr,
+  .badge-table th {
+    display: none !important;
+  }
+
+  /* Card layout */
+  .badge-table tr {
+    display: grid;
+    grid-template-columns: 70px 1fr;
+    grid-template-areas:
+      "img title"
+      "img desc";
+
+    gap: 6px 12px;
+    margin-bottom: 15px;
+    padding: 12px;
+
+    background: #fff; /* 🔥 white card */
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+
+    align-items: center; /* vertical alignment */
+  }
+
+  /* Remove table styling */
+  .badge-table td {
+    border: none;
+    padding: 0;
+    text-align: left;
+  }
+
+  /* Grid areas */
+  .badge-table td:nth-child(1) { 
+    grid-area: img; 
+  }
+
+  .badge-table td:nth-child(2) { 
+    grid-area: title; 
+    font-weight: 700;
+    font-size: 1rem;         /* 🔥 bigger = title feel */
+    line-height: 1.2;
+  }
+
+  .badge-table td:nth-child(3) { 
+    grid-area: desc; 
+    font-size: 0.9em;
+    color: #555;             /* softer description */
+  }
+
+  /* Image */
+  .table-img {
+    width: 60px;
+    margin: 0;
+  }
+
+  /* Optional: subtle hover/tap effect */
+  .badge-table tr:active {
+    transform: scale(0.98);
+  }
+}
+  /* ====================================================== IMAGE STYLING====================================================== */
 .img {  display: block; margin: 20px auto 0;  max-width: 100%;  height: auto;  border-radius: 10px;  box-shadow: 0 5px 15px rgba(0,0,0,0.1);}
 .img-home { width: 50%;}
 .img-lg { width: 100%; }
