@@ -104,38 +104,70 @@ Sign up to help your young person discover their ‘thing’: from archery to co
 <style>
  .camp-section {
   display: flex;
-  align-items: center; /* or center if you want vertical centering */
-  justify-content: center; /* centers both text + carousel horizontally */
   gap: 40px;
   max-width: 1000px;
   margin: auto;
+  align-items: flex-start;
+  flex-wrap: wrap; /* allow wrapping on smaller screens */
 }
 
-.text {
-  flex: 1;
+/* Large screens: all in one row */
+.text1, .text2, .carousel {
+  flex: 1 1 0; /* grow and shrink equally */
 }
+
+/* Text2 and carousel default order */
+.text1 { order: 1; }
+.carousel { order: 2; }
+.text2 { order: 3; }
+
+/* Medium screens */
+@media (max-width: 1000px) {
+  .camp-section {
+    flex-wrap: wrap;
+  }
+
+  .text1 { order: 1; flex-basis: 50%; }      /* left column */
+  .carousel { order: 2; flex-basis: 50%; }   /* right column */
+  .text2 { order: 3; flex-basis: 100%; }     /* moves below, full width */
+}
+
+/* Small screens */
+@media (max-width: 600px) {
+  .camp-section {
+    flex-direction: column;
+  }
+
+  .text1, .carousel, .text2 {
+    flex-basis: 100%;
+    order: unset; /* stack naturally */
+  }
+}
+
+/* Carousel image */
 .carousel {
-   text-align: center;       /* centers image inside */
-    vertical-align: top;      /* aligns top with text column */
   position: relative;
-  max-width: 400px;  /* keeps image from growing too much */
-  display: inline-block; 
+  display: inline-block;
+  max-width: 400px;
+  text-align: center;
 }
 
 .carousel img {
   width: auto;
- max-height:400px;
+  max-height: 400px;
   display: block;
   border-radius: 10px;
 }
+
+/* Controls */
 .controls {
   position: absolute;
-  top: 50%;                 /* vertical center */
- left: 50%;
-  transform: translate(-50%, -50%);  /* center the container over image */
-  width: 100%;                       /* match image width */
+  top: 50%;
+  left: 0;
+  width: 100%;
   display: flex;
-  justify-content: space-between;    /* arrows go to edges */
+  justify-content: space-between;
+  transform: translateY(-50%);
   padding: 0 10px;
   box-sizing: border-box;
 }
@@ -175,7 +207,7 @@ Sign up to help your young person discover their ‘thing’: from archery to co
   }
 }
 </style>
-
+<script> const photos = [ "images/quote1.png", "images/quote2.png", "images/quote3.png", ]; let index = 0; let autoSlide; // Update image + dots function showPhoto(i) { index = i; document.getElementById("photo").src = photos[index]; document.querySelectorAll(".dot").forEach((dot, i) => { dot.classList.toggle("active", i === index); }); } // Next / Prev function nextPhoto() { showPhoto((index + 1) % photos.length); } function prevPhoto() { showPhoto((index - 1 + photos.length) % photos.length); } // Auto slideshow function startAutoSlide() { autoSlide = setInterval(nextPhoto, 3000); // change every 3s } function stopAutoSlide() { clearInterval(autoSlide); } // Create dots const dotsContainer = document.getElementById("dots"); photos.forEach((_, i) => { const dot = document.createElement("span"); dot.classList.add("dot"); dot.onclick = () => showPhoto(i); dotsContainer.appendChild(dot); }); showPhoto(0); startAutoSlide(); // Pause on hover document.getElementById("carousel").addEventListener("mouseover", stopAutoSlide); document.getElementById("carousel").addEventListener("mouseout", startAutoSlide); // Swipe support let startX = 0; const carousel = document.getElementById("carousel"); carousel.addEventListener("touchstart", e => { startX = e.touches[0].clientX; }); carousel.addEventListener("touchend", e => { let endX = e.changedTouches[0].clientX; if (startX - endX > 50) { nextPhoto(); // swipe left } else if (endX - startX > 50) { prevPhoto(); // swipe right } }); </script>
 <div id="footer"></div>
 <div id="fullscreen"> <span id="closeBtn">&times;</span> <img id="fullImg"></div>
 <script src="/style/script.js" defer></script>
