@@ -22,8 +22,77 @@ loadComponent("header", "/components/header.html", () => {
 
 // Load footer
 loadComponent("footer", "/components/footer.html");
+const photos = [
+  "images/quote1.png",
+ "images/quote2.png",
+ "images/quote3.png",
+];
 
+let index = 0;
+let autoSlide;
 
+// Update image + dots
+function showPhoto(i) {
+  index = i;
+  document.getElementById("photo").src = photos[index];
+
+  document.querySelectorAll(".dot").forEach((dot, i) => {
+    dot.classList.toggle("active", i === index);
+  });
+}
+
+// Next / Prev
+function nextPhoto() {
+  showPhoto((index + 1) % photos.length);
+}
+
+function prevPhoto() {
+  showPhoto((index - 1 + photos.length) % photos.length);
+}
+
+// Auto slideshow
+function startAutoSlide() {
+  autoSlide = setInterval(nextPhoto, 3000); // change every 3s
+}
+
+function stopAutoSlide() {
+  clearInterval(autoSlide);
+}
+
+// Create dots
+const dotsContainer = document.getElementById("dots");
+photos.forEach((_, i) => {
+  const dot = document.createElement("span");
+  dot.classList.add("dot");
+  dot.onclick = () => showPhoto(i);
+  dotsContainer.appendChild(dot);
+});
+
+showPhoto(0);
+startAutoSlide();
+
+// Pause on hover
+document.getElementById("carousel").addEventListener("mouseover", stopAutoSlide);
+document.getElementById("carousel").addEventListener("mouseout", startAutoSlide);
+
+// Swipe support
+let startX = 0;
+
+const carousel = document.getElementById("carousel");
+
+carousel.addEventListener("touchstart", e => {
+  startX = e.touches[0].clientX;
+});
+
+carousel.addEventListener("touchend", e => {
+  let endX = e.changedTouches[0].clientX;
+
+  if (startX - endX > 50) {
+    nextPhoto(); // swipe left
+  } else if (endX - startX > 50) {
+    prevPhoto(); // swipe right
+  }
+});
 // ======================================================
 // 🔗 ACTIVE NAV LINK
 // ======================================================
