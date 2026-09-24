@@ -540,3 +540,11 @@ form button:hover {  background: #7C4D9E;}
     font-size: 0.9rem;
     color: #666;
 }
+
+.news-video {
+    display: block;
+    width: 100%;
+    max-width: 848px;
+    height: auto;
+    margin: 15px 0;
+}
